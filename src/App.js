@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import CatalogPage from './pages/CatalogPage';
+import DetailPage from './pages/DetailPage';
+
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <HashRouter>
+
+        <Header/>
+
+        <Routes>
+          <Route exact path='/' element={<HomePage />} />
+          <Route path='/trending' element={<CatalogPage />} />
+
+          <Route path='/categories' element={<CatalogPage />} />
+
+          <Route path='/popular' element={<CatalogPage />} />
+          <Route path='/upcoming' element={<CatalogPage />} />
+
+          <Route path='/search/name=:keyword' element={<CatalogPage /> } />
+          <Route path='/movie/:id' element={<DetailPage />} />
+          <Route path="*" element={<p>Not found 404</p>} />
+        </Routes>
+
+        <Footer/>
+      </HashRouter>
+    </>
+    );
 }
 
 export default App;
