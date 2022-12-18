@@ -1,0 +1,46 @@
+@use "../../scss/" as *;
+
+.SearchInput {
+  @include flex(center, center);
+  padding: 7px 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+
+  &__form {
+    @include flex(center, center);
+    gap: 3px;
+  }
+  &__input {
+    width: 110px;
+    background-color: transparent;
+    border: none;
+    outline: 2px transparent;
+    outline-offset: 3px;
+    color: $white;
+    font-size: 14rem;
+    font-style: normal;
+    line-height: 21px;
+    font-weight: 100;
+    letter-spacing: 0.7rem;
+  }
+  &__input::placeholder {
+    color: $white;
+  }
+  &__btn {
+    @include flex(center, center);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  &__logo {
+    color: $white;
+    font-size: 22px;
+  }
+  &__logo:hover {
+    color: $main-color;
+  }
+  @include tablet {
+    display: none;
+  }
+}

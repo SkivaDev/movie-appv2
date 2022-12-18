@@ -10,14 +10,14 @@
 }
 
 html {
-    font-size: 100%; // 16px
+    font-size: 6.25%; // 16px -> 1rem = 1 px
 
     @include tablet {
-        font-size: 80%; // 12.8px
+        font-size: 5%; // 12.8px 
     }
 
     @include mobile {
-        font-size: 60%; // 9.6px
+        font-size: 3.75%; // 9.6px
     }
 }
 
@@ -63,7 +63,7 @@ iframe {
 }
 
 .container {
-    max-width: 1660px;
+    max-width: 1090px;
     margin: auto;
 }
 

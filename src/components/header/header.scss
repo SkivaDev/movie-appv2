@@ -1,0 +1,167 @@
+@use "../../scss/" as *;
+
+.header {
+  height: 62px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+
+  &.shrink {
+    // height: $header-shrink-height;
+    background-color: blue;
+  }
+  &--background {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(40px);
+    border-bottom: .8px solid rgba(255, 255, 255, 0.18);
+  }
+  &__wrap {
+    @include flex(center, space-between);
+    height: 100%;
+    padding: 0 20px;
+    // padding: ;
+    @include tablet {
+      padding: 0 15px;
+    }
+    @include mobile {
+      gap: 15px;
+    }
+
+  }
+  &__burger{
+    display: none;
+    @include tablet {
+      display: block;
+      z-index: 100;
+    }
+  }
+
+  &__title {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25rem;
+    line-height: 32px;
+    letter-spacing: 1px;
+    color: $main-color;
+    margin-right: 25px;
+    @include tablet {
+      font-size: 55rem;
+      margin: 0;
+    }
+    @include mobile {
+      &.active-searcher {
+        display: none;
+      }
+    }
+  }
+
+  &__nav {
+    @include flex(center, unset);
+    //asd
+    height: 100%;
+    gap: 20px;
+    margin: 0 15px;
+    // & > * ~ * {
+    //   // margin-left: 2px;
+    //   // margin: 0 15px;
+    // } 
+    li {
+      @include flex(center, center);
+      height: 100%;
+      padding: 5px 0;
+      font-weight: 300;
+      position: relative;
+      font-size: 14.5rem;
+
+      &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          transition: width 0.5s ease;
+          height: 2px;
+          background-color: $main-color;
+      }
+
+      &.active::after,
+      &:hover::after {
+          width: 100%;
+      }
+
+      @include tablet {
+        font-size: 27rem;
+      }
+    }
+
+    @include tablet {
+      width: 250px;
+      display: block;
+      position: absolute;
+      top: -700px;
+      left: -2000px;
+      right: 0;
+      text-align: center;
+      transition: all .5s ease;
+      z-index: 99;
+      margin: 0;
+    }
+    &.active-burger {
+      top: 62px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__cfg {
+    @include flex(center,center);
+    gap: 10px;
+
+    @include tablet {
+      display: block;
+      position: absolute;
+    }
+    // &.active-burger {
+    //   display: block;
+    // }
+  }
+  &__searching {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+    @include mobile {
+      &.active-searcher {
+        width: 100%;
+      }
+    }
+  }
+  &__sidevar {
+    display: none;
+
+    @include tablet {
+      display: block;
+      position: absolute;
+      width: 250px;
+      height: 100vh;
+      // top: -700px;
+      // left: -2000px;
+      top: 0;
+      left: -2000px;
+      background: #171717;
+      box-shadow: 7px 0px 18px 10px rgb(0 0 0 / 74%);
+      transition: all .5s ease;
+    }
+
+    &.active-burger {
+      top: 0;
+      left: 0;
+    }
+  }
+}

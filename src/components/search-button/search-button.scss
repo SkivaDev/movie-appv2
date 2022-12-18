@@ -1,0 +1,59 @@
+@use "../../scss/" as *;
+
+.searchButton {
+
+  // transition: all .5s ease;
+  transition: all 2s ;
+
+  &.open {
+    max-width: 400px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    margin-left: auto;
+  }
+
+  &__form {
+    transition: all 6s linear;
+
+    &.open {
+      @include flex(center, space-between);
+      gap: 10px;
+    }
+  }
+  &__input {
+    display: none;
+    transition: all 6s ;
+
+    &.open {
+      display: block;
+      width: 100%;
+      height: 30px;
+      color: $white;
+      border: 0;
+      background-color: transparent;
+      margin-left: 15px;
+      font-size: 25rem;
+    }
+  }
+  &__btn {
+    background-color: transparent;
+    border: none;
+    transition: all 6s ;
+
+    &.open {
+      @include flex(center, center);
+      background-color: transparent;
+      border: none;
+    }
+  }
+  &__logo {
+    color: $white;
+    font-size: 60rem;
+  }
+  &__logo:hover {
+    color: $main-color;
+  }
+  // &.active {
+  //   width: 100%;
+  // }
+}
