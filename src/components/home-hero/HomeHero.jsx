@@ -6,9 +6,12 @@ import apiConfig from '../../api/apiConfig';
 import Modal, { ModalContent } from '../modal/Modal';
 import YouTube from "react-youtube";
 
+import "./home-hero.scss";
+
 function HomeHero() {
 
   const [movieItems, setMovieItems] = useState([]);
+  const [movieItem, setMovieItem] = useState({});
 
   useEffect(() => {
     const getMovies = async () => {
@@ -17,7 +20,14 @@ function HomeHero() {
       try {
          const response = await tmdbApi.getMoviesList(movieType.popular, {params});
           setMovieItems(response.results.slice(1,9));
+
+          function getIndexRandom(min, max) {
+            return Math.floor((Math.random() * (max - min + 1)) + min);
+          }
+          const randomMovie = await tmdbApi.detail(response.results[getIndexRandom(0,9)]["id"]);
+          setMovieItem(randomMovie);
           console.log(response);
+          console.log(randomMovie);
       } catch {
         console.log("ERROR")
       }
@@ -27,52 +37,72 @@ function HomeHero() {
   }, [])
   
 
+
   return (
     <div className='homeHero'>
-      <div>HOLI:3</div>
-      {/* <HomeHeroItem/> */}
-      {
+      {/* {
         movieItems.map((item, i) => (
-          <p key={i}>{item.title}</p>
+          <HomeHeroItem key={i} item={item}/>
         ))
-      }
+      } */}
 
+      <HomeHeroItem key={0} item={movieItem}/>
+  
+      {/* {
+        movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
+      } */}
     </div>
   )
 }
-/*
+
 const HomeHeroItem = props => {
 
-  return (
-    <div className={`homeHero__item ${props.className}`}>
-      <div className='homeHero__item__content '>
-        <div className='homeHero__item__content__background'>
+  // let hisrory = useHis();
 
+  const item = props.item;
+
+  const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
+
+  const setModalActive = async () => {
+    const modal = document.querySelector(`#modal_${item.id}`)
+
+    const videos = await tmdbApi.getVideos(item.id, {});
+  }
+
+  return (
+    <div className={`homeHero__item`}>
+      <div className='homeHero__item__content max-center'>
+        <div 
+          className='homeHero__item__content__background'
+          style={{backgroundImage: `url(${background})`}}
+        >
         </div>
+        
+        {/* <img src={background} alt="xd" className='homeHero__item__content__background2'/> */}
         <div className='homeHero__item__content__info'>
           <div className='homeHero__item__datas'>
             <div className="data__star">
-             <span>★</span>{selectedMovie.vote_average} 
+             <span>★</span>{item.vote_average} 
             </div>
             •
-            <p className="data__num">{minString(selectedMovie.runtime)}</p>
+            <p className="data__num">{item.runtime}</p>
             •
             <div className="data__category">TRENDING</div>
           </div>
           <div className='homeHero__item__texts'>
             <h2 className="data__title">
-            {selectedMovie.title}
+            {item.title}
             </h2>
             <p className="data__overview">
-              {selectedMovie.overview}
+              {item.overview}
             </p>
           </div>
           <div className="homeHero__item__buttons">
-            <button className="PlayTrailer__button">
+            <button className="playTrailer__button">
               <span>{">"}</span>
               <p>PLAY TRAILER</p>
             </button>
-            <button className="GoDatails__button">
+            <button className="goDetails__button">
               <span>?</span>
               <p>DETAILS</p>
             </button>
@@ -85,7 +115,7 @@ const HomeHeroItem = props => {
     </div>
   )
 }
-
+/*
 const TrailerModal = props => {
 
   const item = props.item;
@@ -115,7 +145,7 @@ const TrailerModal = props => {
   
 
   return (
-    <Modal>
+    <Modal id={`modal_${item.id}`}>
       <ModalContent>
         {renderTrailer()}
       </ModalContent>
