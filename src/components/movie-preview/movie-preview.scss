@@ -1,0 +1,33 @@
+@use "../../scss" as *;
+
+.moviePreview {
+  margin-bottom: 40px;
+
+  &__section {
+
+    @include tablet {
+      max-width: calc(100% - 140px);
+      margin: 0 auto;
+    }
+    @include mobile {
+      max-width: calc(100% - 50px);
+      margin: 0 auto;
+    }
+
+    &__header {
+      @include flex(center, space-between);
+      margin-bottom: 20px;
+      
+      & .section__title {
+        font-size: 32rem;
+
+        @include tablet {
+          font-size: 45rem;
+        }
+        @include mobile {
+          font-size: 45rem;
+        }
+      }
+    }
+  }
+}

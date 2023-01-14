@@ -8,9 +8,9 @@ import "./movie-preview.scss"
 function MoviePreview(props) {
   return (
     <div className='moviePreview'>
-      <div className="section mb-3">
-        <div className="section__header mb-2">
-          <h2>{props.title}</h2>
+      <div className="moviePreview__section section mb-3">
+        <div className="moviePreview__section__header mb-2">
+          <h2 className='section__title'>{props.title}</h2>
           <Link to={props.redirect}>
             <OutlineButton className="small">SEE ALL</OutlineButton>
           </Link>

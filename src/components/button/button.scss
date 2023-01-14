@@ -38,6 +38,15 @@ button {
 
 .btn.small {
   border-width: 2px;
-  padding: 0.25rem 1.5rem;
-  font-size: 1rem;
+  padding: 4.25rem 8.5rem;
+  font-size: 16rem;
+
+  @include tablet {
+    padding: 6.25rem 12.5rem;
+    font-size: 26.11rem;
+  }
+  @include mobile {
+    padding: 7.25rem 14.5rem;
+    font-size: 25.11rem;
+  }
 }

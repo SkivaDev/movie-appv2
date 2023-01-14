@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { BsFillCollectionPlayFill } from "react-icons/bs"
+
 import './movie-card.scss';
 
 import { Link } from 'react-router-dom';
@@ -21,10 +23,11 @@ const MovieCard = props => {
         <Link to={link}>
             <div className="movie-card" style={{backgroundImage: `url(${bg})`}}>
                 <Button>
-                    <i className="bx bx-play"></i>
+                    {/* <i className="bx bx-play"></i> */}
+                    <BsFillCollectionPlayFill/>
                 </Button>
             </div>
-            <h3>{item.title || item.name}</h3>
+            <h3 className='movie-card__title'>{item.title || item.name}</h3>
         </Link>
     );
 }

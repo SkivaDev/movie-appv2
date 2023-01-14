@@ -17,6 +17,19 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
+    &__title {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 13.5rem;
+
+        @include tablet {
+            font-size: 22rem;
+        }
+        @include mobile {
+            font-size: 24rem;
+        }
+    }
+
     &::before {
         content: "";
         position: absolute;

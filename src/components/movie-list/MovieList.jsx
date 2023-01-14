@@ -6,6 +6,14 @@ import './movie-list.scss';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router-dom';
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/scrollbar";
+// import required modules
+import { Scrollbar } from "swiper";
+
+
+
 import Button from '../button/Button';
 
 import tmdbApi, { category } from '../../api/tmdbApi';
@@ -24,13 +32,13 @@ const MovieList = props => {
 
             if (props.category !== 'similar') {
                 switch(props.category) {
-                  case "trending":
-                    response = await tmdbApi.getMoviesList("trending", {params});
+                  case "upcoming":
+                    response = await tmdbApi.getMoviesList("upcoming", {params});
                     break;
                   case "popular":
                     response = await tmdbApi.getMoviesList("popular", {params});
                     break;
-                  case "upcoming":
+                  case "trending":
                     response = await tmdbApi.getTrendingMovieList({params});
                     break;
                 }
@@ -48,6 +56,7 @@ const MovieList = props => {
                 grabCursor={true}
                 spaceBetween={10}
                 slidesPerView={'auto'}
+                modules={[Scrollbar]}
             >
                 {
                     items.map((item, i) => (
