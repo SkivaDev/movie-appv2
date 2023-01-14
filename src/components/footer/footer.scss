@@ -1,0 +1,19 @@
+@use "../../scss/" as *;
+
+.footer {
+  &__container {
+    @include flex(center, center);
+    width: 100%;
+    padding: 15px 0;
+    border-top: 2px gray solid;
+  }
+  &__text {
+    font-size: 14rem;
+    @include tablet {
+      font-size: 20rem;
+    }
+    @include mobile {
+      font-size: 25rem;
+    }
+  }
+}
