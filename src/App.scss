@@ -84,6 +84,14 @@ iframe {
     padding: 0 2rem;
 }
 
+.padding-page {
+    padding: 25rem;
+    padding-top: 110rem;
+    
+    @include mobile {
+     padding-top: 150rem;
+    }
+}
 // .section__header {
 //     @include flex(center, space-between);
 // }

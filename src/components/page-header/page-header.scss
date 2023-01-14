@@ -1,0 +1,76 @@
+@use "../../scss/" as *;
+
+.pageHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 35px;
+
+  &__text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    @include mobile {
+      justify-content: start;
+    }
+    .text {
+      font-size: 30rem;
+      letter-spacing: 1rem;
+
+      @include tablet {
+        font-size: 40rem;
+      }
+      @include mobile {
+        font-size: 45rem;
+      }
+    }
+  }
+  &__btn {
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      width: 113px;
+      background-color: $main-color;
+      border-radius: 11px;
+      color: $white;
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      transition: color 0.3s ease, background-color 0.3s ease;
+
+      @include tablet {
+        width: 130px;
+      }
+      @include mobile {
+        justify-content: center;
+        width: 45px;
+      }
+    }
+    .button:hover {
+      color: gray;
+      background-color: $btn-oppacity;
+    }
+
+    .button-icon{
+      font-size: 20rem;
+      @include tablet {
+        font-size: 35rem;
+      }
+      @include mobile {
+        font-size: 35rem;
+      }
+    }
+    .button-text {
+      font-size: 14rem;
+      @include tablet {
+        font-size: 20rem;
+      }
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}
