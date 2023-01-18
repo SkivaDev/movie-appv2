@@ -4,8 +4,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
-  margin-bottom: 3rem;
-
+  margin-bottom: 20rem;
   @include tablet {
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -35,4 +34,17 @@
           top: 1px;
       }
   }
+}
+.movie-grid__pagination {
+    .MuiPagination-root {
+        .MuiButtonBase-root.MuiPaginationItem-page:hover{
+            color: #E13C2F;
+            border: 1px solid rgba(225, 60, 47, 0.5);
+            background-color: rgba(225, 60, 47, 0.12);
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
 }
