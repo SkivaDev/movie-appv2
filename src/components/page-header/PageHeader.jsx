@@ -25,8 +25,11 @@ function PageHeader(props) {
         case "popular":
           setTitlePage("Popular Movies");
           break;
+        case "categories":
+          setTitlePage("Categories");
+          break;
         default:
-          setTitlePage("UNDEFINED");
+          setTitlePage(props.keyword);
           break;
       }
     }

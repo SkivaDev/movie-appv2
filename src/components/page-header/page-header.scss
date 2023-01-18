@@ -17,6 +17,7 @@
     .text {
       font-size: 30rem;
       letter-spacing: 1rem;
+      text-transform: capitalize;
 
       @include tablet {
         font-size: 40rem;

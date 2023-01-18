@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
 import tmdbApi, { category } from '../../api/tmdbApi';
 import MovieCard from '../movie-card/MovieCard';
 
@@ -14,14 +13,11 @@ function MovieGrid(props) {
   const [page, setPage] = useState(parseInt(1));
   const [totalPage, setTotalPage] = useState(0);
 
-  const [changePaginationPage, setChangePaginationPage] = useState(1);
-
-  const { keyword } = useParams();
 
   useEffect(() => {
     const getList = async () => {
       let response = null;
-      if (keyword === undefined) {
+      if (props.keyword === undefined) {
           const params = {
             page: 1
           };
@@ -39,7 +35,7 @@ function MovieGrid(props) {
           }
       } else {
           const params = {
-              query: keyword
+              query: props.keyword
           }
           response = await tmdbApi.search({params});
       }
@@ -50,11 +46,11 @@ function MovieGrid(props) {
     getList();
     window.scrollTo({top: 0, behavior: 'smooth',});
 
-  }, [props.category, keyword])
+  }, [props.category, props.keyword])
 
   const loadMore = async () => {
     let response = null;
-    if (keyword === undefined) {
+    if (props.keyword === undefined) {
       const params = {
         page: page + 1
       };
@@ -72,7 +68,7 @@ function MovieGrid(props) {
     } else {
       const params = {
         page: page + 1,
-        query: keyword
+        query: props.keyword
       }
       response = await tmdbApi.search({params});
     }
@@ -87,7 +83,6 @@ function MovieGrid(props) {
       clientHeight,
       clientWidth
     } = document.documentElement;
-    document.documentElement.clientWidth
 
     const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
     const pageIsNotMax = page < totalPage;
@@ -106,7 +101,7 @@ function MovieGrid(props) {
 
     const getPaginatedMovies = async (newPage) => {
     let response = null;
-    if (keyword === undefined) {
+    if (props.keyword === undefined) {
       const params = {
         page: newPage
       };
@@ -124,7 +119,7 @@ function MovieGrid(props) {
     } else {
       const params = {
         page: newPage,
-        query: keyword
+        query: props.keyword
       }
       response = await tmdbApi.search({params});
     }

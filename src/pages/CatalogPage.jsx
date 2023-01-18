@@ -5,15 +5,15 @@ import MovieGrid from '../components/movie-grid/MovieGrid';
 
 function CatalogPage() {
 
-  const { category, page } = useParams();
+  const { category, keyword} = useParams();
 
   return (
     <div className={`padding-page max-center`}>
       
-      <PageHeader category={category}/>
+      <PageHeader category={category} keyword={keyword}/>
       {/* {isCategories ? <GenreNav /> : null} */}
 
-      <MovieGrid category={category} page={page}/>
+      <MovieGrid category={category} keyword={keyword}/>
     </div>
   )
 }

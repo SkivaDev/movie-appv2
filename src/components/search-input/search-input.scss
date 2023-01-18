@@ -6,6 +6,10 @@
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
 
+  &.input-error {
+    border-color: $second-color;
+  }
+
   &__form {
     @include flex(center, center);
     gap: 3px;
@@ -22,6 +26,7 @@
     line-height: 21px;
     font-weight: 100;
     letter-spacing: 0.7rem;
+
   }
   &__input::placeholder {
     color: $white;
