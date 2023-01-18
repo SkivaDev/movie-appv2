@@ -11,11 +11,13 @@ function MoviePreview(props) {
       <div className="moviePreview__section section mb-3">
         <div className="moviePreview__section__header mb-2">
           <h2 className='section__title'>{props.title}</h2>
+          {props.category !== "similar" && (        
           <Link to={props.redirect}>
             <OutlineButton className="small">SEE ALL</OutlineButton>
           </Link>
+          )}
         </div>
-        <MovieList category={props.category}/> 
+        <MovieList category={props.category} id={props.id}/> 
       </div>
     </div>
   )

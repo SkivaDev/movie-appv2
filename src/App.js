@@ -27,7 +27,7 @@ function App() {
           <Route path='/:category' element={<CatalogPage />} />
 
           <Route path='/search/name=:keyword' element={<CatalogPage /> } />
-          <Route path='/movie/:id' element={<DetailPage />} />
+          <Route path='/:category/:id' element={<DetailPage />} />
           <Route path="*" element={<p>Not found 404</p>} />
         </Routes>
 

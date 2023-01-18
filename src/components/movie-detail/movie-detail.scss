@@ -1,0 +1,203 @@
+@use "../../scss/" as *;
+
+.movieDetail {
+
+  &__item {
+    max-width: 960px;
+    height: 100vh;
+
+
+    &__content{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      height: 100%;
+
+      @include tablet {
+        max-width: calc(100% - 140px);
+        margin: 0 auto;
+      }
+      @include mobile {
+        max-width: calc(100% - 50px);
+        margin: 0 auto;
+      }
+
+      &__background {
+        position: absolute;
+        display: flex;
+        width: 100%;
+        height: 150vh;
+        top: 0;
+        right: 0;
+        background-size: cover;
+        background-position: center;
+        box-shadow: inset 0 0 85px 65px black;
+        border-radius: 11%;
+        opacity: 0.2;
+        z-index: -1;
+      }
+      &__poster {
+        height: 610px;
+        width: 400px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px
+      }
+      &__info {
+        @include flex(start, center);
+        flex-direction: column;
+        position: relative;
+        max-width: 512px;
+        height: 610px;
+
+        @include mobile {
+          @include flex(center, end);
+          // min-width: 258px;
+        }
+
+      }
+
+    }
+
+    &__datas {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 20rem;
+      margin-bottom: 15px;
+
+      @include mobile {
+        font-size: 40rem;
+      }
+
+      & .data__star {
+        display: flex;
+        align-items: center;
+        & > span {
+          color: $main-color;
+        }
+      }
+      // &.data__num {
+
+      // }
+      & .data__category {
+        padding: 4px 6px;
+        background-color: $main-color;
+        font-size: 15rem;
+        border-radius: 7px;
+        text-transform: uppercase;
+
+        @include mobile {
+          padding: 5px 10px;
+          font-size: 28rem;
+        }
+      }
+    }
+
+    &__texts {
+
+      & .data__title {
+        font-size: 32rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+
+        @include mobile {
+          font-size: 50rem;
+          text-align: center;
+        }
+      }
+      & .data__overview {
+        font-size: 18rem;
+        font-weight: 400;
+        line-height: 26px;
+        margin-bottom: 17px;
+
+        // display: -webkit-box;
+        // overflow: hidden;
+        // -webkit-line-clamp: 4;
+        // -webkit-box-orient: vertical;
+
+
+
+      }
+      & .data__released {
+        font-size: 15rem;
+        margin-bottom: 17px;
+      }
+    }
+
+    &__buttons {
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      & .playTrailer__button {
+        display: flex;
+        padding: 12px 12px;
+        gap: 5px;
+        background-color: $main-color;
+        border-radius: 10px;
+        color: $white;
+        font-size: 14rem;
+        cursor: pointer;
+
+        @include mobile {
+          font-size: 30rem;
+          padding: 15px 12px;
+        }
+      }
+
+    }
+
+    &__btn-back {
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      .button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 10px;
+        width: 113px;
+        background-color: $main-color;
+        border-radius: 11px;
+        color: $white;
+        cursor: pointer;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: color 0.3s ease, background-color 0.3s ease;
+
+        @include tablet {
+          width: 130px;
+        }
+        @include mobile {
+          justify-content: center;
+          width: 45px;
+        }
+      }
+      .button:hover {
+        color: gray;
+        background-color: $btn-oppacity;
+      }
+
+      .button-icon{
+        font-size: 20rem;
+        @include tablet {
+          font-size: 35rem;
+        }
+        @include mobile {
+          font-size: 35rem;
+        }
+      }
+      .button-text {
+        font-size: 14rem;
+        @include tablet {
+          font-size: 20rem;
+        }
+        @include mobile {
+          display: none;
+        }
+      }
+    }
+  }
+}
