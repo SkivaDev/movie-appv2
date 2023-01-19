@@ -23,35 +23,35 @@ function GenreFilter(props) {
   const filterGenre = (e) => {
     const newGenreId = e.target.id;
     const selectedGenresX = [...props.selectedGenres];
+    console.log("LISTAAA", selectedGenresX);
     if(selectedGenresX.length === 0) {
-      props.setSelectedGenres([newGenreId])
+      selectedGenresX.push(newGenreId);
     } else {
       if(selectedGenresX.includes(newGenreId)){
         selectedGenresX.forEach((id, idx) => {
            if(id === newGenreId) {
             selectedGenresX.splice(idx, 1);
             console.log( "xas" , selectedGenresX)
-            props.setSelectedGenres(selectedGenresX)
          }
          })
       } 
       else {
-         props.setSelectedGenres([...selectedGenresX, newGenreId])
+        selectedGenresX.push(newGenreId)
       }
     }
+    props.setSelectedGenres(selectedGenresX);
     console.log(props.selectedGenres)
-    highlightSelection(newGenreId);
+    highlightSelection(selectedGenresX);
   }
 
-  const highlightSelection = () => {
+  const highlightSelection = (selectedGenres) => {
     const tag = document.querySelectorAll(".genreFilter__btn");
     tag.forEach(tag => {
       tag.classList.remove('highlight')
     })
 
-    const selectedGenresX = [...props.selectedGenres];
-    if(props.selectedGenres !== 0) {
-      props.selectedGenres.forEach(id => {
+    if(selectedGenres !== 0) {
+      selectedGenres.forEach(id => {
         const hightlightedTag = document.getElementById(id);
         hightlightedTag.classList.add('highlight');
       })

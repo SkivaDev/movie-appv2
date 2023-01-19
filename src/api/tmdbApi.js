@@ -51,8 +51,7 @@ const tmdbApi = {
   },
   getMoviesByCategory: (id, params) => {
     const url = 'discover/movie'
-    return axiosClient.get(url, {...params, params: {with_genres: id}})
-    // return axiosClient.get(url, {params})
+    return axiosClient.get(url, {params: {...params.params, with_genres: id}})
   }
 }
 

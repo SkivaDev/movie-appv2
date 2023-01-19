@@ -71,11 +71,8 @@ function MovieGrid(props) {
           response = await tmdbApi.getTrendingMovieList({params});
           break;
         case "categories":
-          const categoryParams = {
-            ...params,
-            with_genres: props.selectedGenres
-          }
-          response = await tmdbApi.getMoviesByCategory({categoryParams});
+          const stringGenres = props.selectedGenres.join(",");
+          response = await tmdbApi.getMoviesByCategory(stringGenres, {params});
           break;
       }
     } else {
@@ -129,11 +126,9 @@ function MovieGrid(props) {
           response = await tmdbApi.getTrendingMovieList({params});
           break;
         case "categories":
-          const categoryParams = {
-            ...params,
-            with_genres: props.selectedGenres
-          }
-          response = await tmdbApi.getMoviesByCategory({categoryParams});
+          const stringGenres = props.selectedGenres.join(",");
+          response = await tmdbApi.getMoviesByCategory(stringGenres, {params});
+          console.log("New list page cat", response);
           break;
       }
     } else {
