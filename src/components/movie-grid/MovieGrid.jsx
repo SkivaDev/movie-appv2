@@ -19,7 +19,7 @@ function MovieGrid(props) {
       let response = null;
       if (props.keyword === undefined) {
           const params = {
-            page: 1
+            page: 3
           };
           // setChangePaginationPage(page);
           switch(props.category) {
@@ -31,6 +31,12 @@ function MovieGrid(props) {
               break;
             case "trending":
               response = await tmdbApi.getTrendingMovieList({params});
+              break;
+            case "categories":
+              console.log("HOla?")
+              const stringGenres = props.selectedGenres.join(",");
+              response = await tmdbApi.getMoviesByCategory(stringGenres, {params});
+              console.log(response)
               break;
           }
       } else {
@@ -46,7 +52,7 @@ function MovieGrid(props) {
     getList();
     window.scrollTo({top: 0, behavior: 'smooth',});
 
-  }, [props.category, props.keyword])
+  }, [props.category, props.keyword, props.selectedGenres])
 
   const loadMore = async () => {
     let response = null;
@@ -63,6 +69,13 @@ function MovieGrid(props) {
           break;
         case "trending":
           response = await tmdbApi.getTrendingMovieList({params});
+          break;
+        case "categories":
+          const categoryParams = {
+            ...params,
+            with_genres: props.selectedGenres
+          }
+          response = await tmdbApi.getMoviesByCategory({categoryParams});
           break;
       }
     } else {
@@ -114,6 +127,13 @@ function MovieGrid(props) {
           break;
         case "trending":
           response = await tmdbApi.getTrendingMovieList({params});
+          break;
+        case "categories":
+          const categoryParams = {
+            ...params,
+            with_genres: props.selectedGenres
+          }
+          response = await tmdbApi.getMoviesByCategory({categoryParams});
           break;
       }
     } else {
