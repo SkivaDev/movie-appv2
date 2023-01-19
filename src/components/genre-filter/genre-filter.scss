@@ -1,0 +1,40 @@
+@use "../../scss/" as *;
+
+.genreFilter {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  position: relative;
+  padding-bottom: 25px;
+  margin-bottom: 30px;
+
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #262626;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $main-color;
+    border-radius: 3px;
+    border: 20px solid #ff0000;
+  }
+
+  &__btn {
+    color: $white;
+    font-size: 14.5rem;
+    font-weight: 400;
+    background-color: $btn-gray;
+    padding: 2px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    // font-family: Arial, Helvetica, sans-serif;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  &__btn:hover {
+    background-color: $main-color;
+  }
+  &__btn.highlight {
+    background-color: $main-color;
+  }
+}

@@ -19,7 +19,7 @@ function MovieGrid(props) {
       let response = null;
       if (props.keyword === undefined) {
           const params = {
-            page: 3
+            page: 1
           };
           // setChangePaginationPage(page);
           switch(props.category) {

@@ -7,6 +7,8 @@ import './genre-filter.scss'
 function GenreFilter(props) {
 
   const [genres, setGenres] = useState([]);
+  const [clickedGenre, setClickedGenre] = useState(false)
+
 
   useEffect(() => {
     const getGenres = async () => {
@@ -38,13 +40,31 @@ function GenreFilter(props) {
       }
     }
     console.log(props.selectedGenres)
+    highlightSelection(newGenreId);
   }
+
+  const highlightSelection = () => {
+    const tag = document.querySelectorAll(".genreFilter__btn");
+    tag.forEach(tag => {
+      tag.classList.remove('highlight')
+    })
+
+    const selectedGenresX = [...props.selectedGenres];
+    if(props.selectedGenres !== 0) {
+      props.selectedGenres.forEach(id => {
+        const hightlightedTag = document.getElementById(id);
+        hightlightedTag.classList.add('highlight');
+      })
+    }
+  }
+
 
   return (
     <div className='genreFilter'>
       {
         genres.map((gen, i) => 
           <button
+            className={`genreFilter__btn`}
             key={i}
             id={gen.id}
             onClick={filterGenre}
