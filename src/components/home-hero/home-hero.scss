@@ -118,6 +118,7 @@
 
       & .playTrailer__button {
         display: flex;
+        align-items: center;
         padding: 12px 12px;
         gap: 5px;
         background-color: $main-color;
@@ -146,7 +147,8 @@
       }
       & .goDetails__button {
         display: flex;
-        padding: 12px 12px;
+        align-items: center;
+        padding: 8.5px 12px;
         gap: 5px;
         background-color: $btn-gray;
         border: none;

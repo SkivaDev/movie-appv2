@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
@@ -71,6 +72,8 @@ const HomeHeroItem = props => {
     const videos = await tmdbApi.getVideos(item.id, {});
   }
 
+  const link = '/popular/' + item.id;
+
   return (
     <div className={`homeHero__item`}>
       <div className='homeHero__item__content max-center'>
@@ -104,10 +107,10 @@ const HomeHeroItem = props => {
               <BsFillPlayFill className='playTrailer__button__icon'/>
               <p className='playTrailer__button__text'>PLAY TRAILER</p>
             </button>
-            <button className="goDetails__button">
+            <Link className="goDetails__button" to={link}>
               <AiFillInfoCircle className='goDetails__button__icon'/>
               <p className='goDetails__button__text'>DETAILS</p>
-            </button>
+            </Link>
           </div>
         </div>
         <div className='homeHero__item__content__poster'>
