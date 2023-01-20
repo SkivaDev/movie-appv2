@@ -9,6 +9,8 @@ import { BsFillPlayFill } from 'react-icons/bs'
 import { AiFillInfoCircle } from 'react-icons/ai'
 import './movie-detail.scss'
 
+import { formatRunTime, formatVoteAverage } from '../../utils/utils'
+
 function MovieDetail() {
 
   const { category, id } = useParams();
@@ -62,6 +64,21 @@ const MovieDetailItem = props => {
     const videos = await tmdbApi.getVideos(item.id, {});
   }
 
+  console.log("daw?", item.genres);
+
+  ///
+  const genresArray = new Set(item.genres);
+
+  ///
+  const renderGenres = () => (
+    item.genres.map((gen, i) => 
+      <div className='genre__item' key={i}>
+        {gen.name}
+      </div>
+    )
+  )
+
+
   const navigate = useNavigate();
 
   const returnBack = () => {
@@ -84,10 +101,10 @@ const MovieDetailItem = props => {
         <div className='movieDetail__item__content__info'>
           <div className='movieDetail__item__datas'>
             <div className="data__star">
-             <span>★</span>{item.vote_average} 
+             <span>★</span>{formatVoteAverage(item.vote_average)} 
             </div>
             •
-            <p className="data__num">{item.runtime}</p>
+            <p className="data__num">{formatRunTime(item.runtime)}</p>
             •
             <div className="data__category">{props.category}</div>
           </div>
@@ -99,7 +116,7 @@ const MovieDetailItem = props => {
               {item.overview}
             </p>
             <h5 className="data__released">
-              <marker>Released: </marker>{item.release_date}
+              <mark>Released: </mark>{item.release_date}
             </h5>
           </div>
           <div className="movieDetail__item__buttons">
@@ -111,12 +128,13 @@ const MovieDetailItem = props => {
           <div className="movieDetail__item__genres">
             <h3 className='genre__text'>Categories</h3>        
             <div className='genre__box'>
-              {/* {item.genres.map((gen, i) => 
+              {Array.from(genresArray).map((gen, i) => 
                 <div className='genre__item' key={i}>
                   {gen.name}
                 </div>
-              )} */}
-                <div className='genre__item'>
+              )}
+                {/* {renderGenres()} */}
+                {/* <div className='genre__item'>
                   Drama
                 </div>
                 <div className='genre__item'>
@@ -124,7 +142,7 @@ const MovieDetailItem = props => {
                 </div>
                 <div className='genre__item'>
                   Terror
-                </div>
+                </div> */}
             </div>
           </div>
           <div className={`movieDetail__item__btn-back`}>

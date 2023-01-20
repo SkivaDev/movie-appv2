@@ -11,6 +11,8 @@ import { BsFillPlayFill } from 'react-icons/bs'
 import { AiFillInfoCircle } from 'react-icons/ai'
 import "./home-hero.scss";
 
+import { formatRunTime, formatVoteAverage } from '../../utils/utils'
+
 function HomeHero() {
 
   const [movieItems, setMovieItems] = useState([]);
@@ -83,16 +85,15 @@ const HomeHeroItem = props => {
         >
         </div>
         
-        {/* <img src={background} alt="xd" className='homeHero__item__content__background2'/> */}
         <div className='homeHero__item__content__info'>
           <div className='homeHero__item__datas'>
             <div className="data__star">
-             <span>★</span>{item.vote_average} 
+             <span>★</span>{formatVoteAverage(item.vote_average)} 
             </div>
             •
-            <p className="data__num">{item.runtime}</p>
+            <p className="data__num">{formatRunTime(item.runtime)}</p>
             •
-            <div className="data__category">TRENDING</div>
+            <div className="data__category">POPULAR</div>
           </div>
           <div className='homeHero__item__texts'>
             <h2 className="data__title">

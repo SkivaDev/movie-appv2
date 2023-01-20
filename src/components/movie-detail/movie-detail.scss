@@ -145,8 +145,15 @@
       & .data__released {
         font-size: 15rem;
         margin-bottom: 17px;
+        font-weight: 400;
         @include mobile {
           display: none;
+        }
+
+        & > mark {
+          color: $white;
+          background-color: transparent;
+          font-weight: 700;
         }
       }
     }
