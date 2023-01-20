@@ -5,7 +5,8 @@ import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
 import { BiArrowBack } from "react-icons/bi"
-
+import { BsFillPlayFill } from 'react-icons/bs'
+import { AiFillInfoCircle } from 'react-icons/ai'
 import './movie-detail.scss'
 
 function MovieDetail() {
@@ -103,8 +104,8 @@ const MovieDetailItem = props => {
           </div>
           <div className="movieDetail__item__buttons">
             <button className="playTrailer__button">
-              <span>{">"}</span>
-              <p>PLAY TRAILER</p>
+              <BsFillPlayFill className='playTrailer__button__icon'/>
+              <p className='playTrailer__button__text'>PLAY TRAILER</p>
             </button>
           </div>
           <div className="movieDetail__item__genres">

@@ -121,29 +121,60 @@
         padding: 12px 12px;
         gap: 5px;
         background-color: $main-color;
-        border-radius: 10px;
+        border: none;
+        border-radius: 8px;
         color: $white;
         font-size: 14rem;
         cursor: pointer;
+
+        &:hover {
+          background-color: $btn-oppacity;
+        }
 
         @include mobile {
           font-size: 30rem;
           padding: 15px 12px;
         }
+
+        &__icon {
+          font-size: 15rem;
+          @include mobile {
+            font-size: 35rem;
+          }
+        }
+
       }
       & .goDetails__button {
         display: flex;
         padding: 12px 12px;
         gap: 5px;
         background-color: $btn-gray;
-        border-radius: 10px;
+        border: none;
+        border-radius: 8px;
         color: $white;
         font-size: 14rem;
         cursor: pointer;
 
+        &:hover {
+          background-color: $btn-oppacity-gray
+        }
+
         @include mobile {
           font-size: 30rem;
-          padding: 15px 12px;
+          padding: 13.5px 13.5px;
+        }
+
+        &__icon {
+          font-size: 15rem;
+          @include mobile {
+            font-size: 40rem;
+          }
+        }
+
+        &__text {
+          @include mobile {
+            display: none;
+          }
         }
       }
     }

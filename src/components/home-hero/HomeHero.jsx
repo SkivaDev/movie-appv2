@@ -6,6 +6,8 @@ import apiConfig from '../../api/apiConfig';
 import Modal, { ModalContent } from '../modal/Modal';
 import YouTube from "react-youtube";
 
+import { BsFillPlayFill } from 'react-icons/bs'
+import { AiFillInfoCircle } from 'react-icons/ai'
 import "./home-hero.scss";
 
 function HomeHero() {
@@ -99,12 +101,12 @@ const HomeHeroItem = props => {
           </div>
           <div className="homeHero__item__buttons">
             <button className="playTrailer__button">
-              <span>{">"}</span>
-              <p>PLAY TRAILER</p>
+              <BsFillPlayFill className='playTrailer__button__icon'/>
+              <p className='playTrailer__button__text'>PLAY TRAILER</p>
             </button>
             <button className="goDetails__button">
-              <span>?</span>
-              <p>DETAILS</p>
+              <AiFillInfoCircle className='goDetails__button__icon'/>
+              <p className='goDetails__button__text'>DETAILS</p>
             </button>
           </div>
         </div>
