@@ -6,6 +6,9 @@
     max-width: 960px;
     height: 100vh;
 
+    @include mobile {
+     height: 135vh;
+    }
 
     &__content{
       display: flex;
@@ -35,13 +38,24 @@
         border-radius: 11%;
         opacity: 0.2;
         z-index: -1;
+
+        @include mobile {
+         opacity: 0.9;
+        }
       }
       &__poster {
         height: 610px;
         width: 400px;
         background-size: cover;
         background-position: center;
-        border-radius: 10px
+        border-radius: 10px;
+
+        @include tablet {
+          width: 280px;
+        }
+        @include mobile {
+          display: none;
+        }
       }
       &__info {
         @include flex(start, center);
@@ -50,6 +64,9 @@
         max-width: 512px;
         height: 610px;
 
+        @include tablet {
+          max-width: 370px;
+        }
         @include mobile {
           @include flex(center, end);
           // min-width: 258px;
@@ -112,6 +129,11 @@
         line-height: 26px;
         margin-bottom: 17px;
 
+        @include mobile {
+          font-size: 27rem;
+          line-height: 23px;
+          text-align: center;
+        }
         // display: -webkit-box;
         // overflow: hidden;
         // -webkit-line-clamp: 4;
@@ -123,6 +145,9 @@
       & .data__released {
         font-size: 15rem;
         margin-bottom: 17px;
+        @include mobile {
+          display: none;
+        }
       }
     }
 
@@ -148,12 +173,43 @@
       }
 
     }
+    
+    &__genres {
+      margin-top: 20px;
+      align-self: start;
+      & .genre__text {
+        font-size: 25rem;
+        margin-bottom: 10px;
+        @include mobile {
+          font-size: 40rem;
+        }
+      }
+      & .genre__box {
+        display: flex;
+        gap: 15px;
+      }
+      & .genre__item {
+        font-size: 15rem;
+        font-weight: 400;
+        background-color: $btn-gray;
+        padding: 8px 16px;
+        border-radius: 7px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        @include mobile {
+          font-size: 24rem;
+        }
+      }
+    }
 
     &__btn-back {
       position: absolute;
       top: 0;
       right: 0;
 
+
+      @include mobile {
+        display: none;
+      }
       .button {
         display: flex;
         align-items: center;
@@ -168,7 +224,7 @@
         transition: color 0.3s ease, background-color 0.3s ease;
 
         @include tablet {
-          width: 130px;
+          width: 105px;
         }
         @include mobile {
           justify-content: center;
@@ -183,7 +239,7 @@
       .button-icon{
         font-size: 20rem;
         @include tablet {
-          font-size: 35rem;
+          font-size: 24rem;
         }
         @include mobile {
           font-size: 35rem;
@@ -192,7 +248,7 @@
       .button-text {
         font-size: 14rem;
         @include tablet {
-          font-size: 20rem;
+          font-size: 15rem;
         }
         @include mobile {
           display: none;

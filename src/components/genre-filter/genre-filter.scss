@@ -30,6 +30,10 @@
     cursor: pointer;
     // font-family: Arial, Helvetica, sans-serif;
     transition: color 0.3s ease, background-color 0.3s ease;
+
+    @include mobile {
+      font-size: 25.5rem;
+    }
   }
   &__btn:hover {
     background-color: $main-color;

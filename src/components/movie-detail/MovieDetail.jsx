@@ -23,7 +23,7 @@ function MovieDetail() {
 
         const response = await tmdbApi.detail( id, {params});
         setMovieItem(response);
-
+        console.log("DETAIL MOVIE", response);
      } catch {
        console.log("ERROR MOVIEDETAIL")
      }
@@ -50,6 +50,10 @@ const MovieDetailItem = props => {
 
   const poster = apiConfig.originalImage(item.poster_path ? item.poster_path : item.backdrop_path);
 
+  const {
+    clientWidth
+  } = document.documentElement;
+  const isMobile = clientWidth < 600;
 
   const setModalActive = async () => {
     const modal = document.querySelector(`#modal_${item.id}`)
@@ -68,7 +72,7 @@ const MovieDetailItem = props => {
       <div className='movieDetail__item__content'>
         <div 
           className='movieDetail__item__content__background'
-          style={{backgroundImage: `url(${background})`}}
+          style={{backgroundImage: `url(${isMobile ? poster : background})`}}
         >
         </div>
         <div 
@@ -105,7 +109,22 @@ const MovieDetailItem = props => {
           </div>
           <div className="movieDetail__item__genres">
             <h3 className='genre__text'>Categories</h3>        
-              {/* <SentionBUTTON/> */}
+            <div className='genre__box'>
+              {/* {item.genres.map((gen, i) => 
+                <div className='genre__item' key={i}>
+                  {gen.name}
+                </div>
+              )} */}
+                <div className='genre__item'>
+                  Drama
+                </div>
+                <div className='genre__item'>
+                  Animation
+                </div>
+                <div className='genre__item'>
+                  Terror
+                </div>
+            </div>
           </div>
           <div className={`movieDetail__item__btn-back`}>
             <button className={`button`} onClick={returnBack}>
