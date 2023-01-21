@@ -1,12 +1,15 @@
 import React, { useRef, useState } from 'react'
 import { BiSearch } from 'react-icons/bi'
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 import './search-input.scss'
 
 function SearchInput() {
 
   const inputRef = useRef();
   const navigate = useNavigate();
+  const [t] = useTranslation("global");
+
 
   const [text, setText] = useState("");
   const [error, setError] = useState(false);
@@ -48,7 +51,7 @@ function SearchInput() {
           type="text"
           value={text}
           onChange={onChange}
-          placeholder='Search'
+          placeholder={`${t("lang.search")}`}
         />
         <button 
         className={`SearchInput__btn`} 

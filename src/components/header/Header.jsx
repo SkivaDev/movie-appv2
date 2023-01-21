@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 import BurgerButton from '../burger-button/BurgerButton'
 import LanguageToggle from '../language-toggle/LanguageToggle'
@@ -7,34 +8,39 @@ import SearchButton from '../search-button/SearchButton'
 import SearchInput from '../search-input/SearchInput'
 
 import './header.scss'
-
-const headerNav = [
-  {
-    display: 'Home',
-    path: '/'
-  },
-  {
-    display: 'Trending',
-    path: '/trending'
-  },
-  {
-    display: 'Categories',
-    path: '/categories'
-  },
-  {
-    display: 'Popular',
-    path: '/popular'
-  },
-  {
-    display: 'Upcoming',
-    path: '/upcoming'
-  },
-]
-
+/*
+import { useTranslation } from 'react-i18next'
+const [t] = useTranslation("global");
+`${t("lang.home")}`
+*/
 function Header() {
 
   const { pathname } = useLocation();
   const headerRef = useRef(null);
+  const [t] = useTranslation("global");
+
+  const headerNav = [
+    {
+      display: `${t("lang.home")}`,
+      path: '/'
+    },
+    {
+      display: `${t("lang.trending")}`,
+      path: '/trending'
+    },
+    {
+      display: `${t("lang.categories")}`,
+      path: '/categories'
+    },
+    {
+      display: `${t("lang.popular")}`,
+      path: '/popular'
+    },
+    {
+      display: `${t("lang.upcoming")}`,
+      path: '/upcoming'
+    },
+  ]
 
   const active = headerNav.findIndex(e => e.path === pathname);
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
+import { useTranslation } from 'react-i18next'
 
 import TrailerModal from '../trailer-modal/TrailerModal';
 
@@ -17,6 +18,8 @@ import { formatRunTime, formatVoteAverage } from '../../utils/utils'
 
 function HomeHero() {
 
+  const [t] = useTranslation("global");
+
   const [movieItems, setMovieItems] = useState([]);
   const [movieItem, setMovieItem] = useState({});
   const [playTrailer, setPlayTrailer] = useState(false);
@@ -24,7 +27,7 @@ function HomeHero() {
 
   useEffect(() => {
     const getMovies = async () => {
-      const params = {page: 1}
+      const params = {page: 1, language: `${t("lang.langAPI")}`}
 
       try {
          const response = await tmdbApi.getMoviesList(movieType.popular, {params});
@@ -33,7 +36,7 @@ function HomeHero() {
           function getIndexRandom(min, max) {
             return Math.floor((Math.random() * (max - min + 1)) + min);
           }
-          const randomMovie = await tmdbApi.detail(response.results[getIndexRandom(0,9)]["id"]);
+          const randomMovie = await tmdbApi.detail(response.results[getIndexRandom(0,9)]["id"], {params});
           setMovieItem(randomMovie);
           console.log(response);
           console.log(randomMovie);
@@ -43,7 +46,7 @@ function HomeHero() {
     }
 
     getMovies();
-  }, [])
+  }, [t])
   
 
 
@@ -74,6 +77,7 @@ function HomeHero() {
 const HomeHeroItem = props => {
 
   // let hisrory = useHis();
+  const [t] = useTranslation("global");
 
   const item = props.item;
 
@@ -120,12 +124,14 @@ const HomeHeroItem = props => {
               <p className='playTrailer__button__text' 
                 onClick={()=> props.setPlayTrailer(true)}
               >
-                PLAY TRAILER
+                {`${t("lang.playTrailer")}`}
               </p>
             </button>
             <Link className="goDetails__button" to={link}>
               <AiFillInfoCircle className='goDetails__button__icon'/>
-              <p className='goDetails__button__text'>DETAILS</p>
+              <p className='goDetails__button__text'>
+                {`${t("lang.details")}`}
+              </p>
             </Link>
           </div>
         </div>

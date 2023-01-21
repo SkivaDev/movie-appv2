@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import tmdbApi from '../../api/tmdbApi';
 
 import './genre-filter.scss'
 
 function GenreFilter(props) {
+
+  const [t] = useTranslation("global");
 
   const [genres, setGenres] = useState([]);
   const [clickedGenre, setClickedGenre] = useState(false)
@@ -13,12 +16,12 @@ function GenreFilter(props) {
   useEffect(() => {
     const getGenres = async () => {
       let response = null;
-      const params = {};
+      const params = {language: `${t("lang.langAPI")}`};
       response = await tmdbApi.genres({params});
       setGenres(response.genres);
     }
     getGenres();
-  }, [])
+  }, [t])
 
   const filterGenre = (e) => {
     const newGenreId = e.target.id;

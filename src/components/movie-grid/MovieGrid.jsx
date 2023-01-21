@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import tmdbApi, { category } from '../../api/tmdbApi';
+import { useTranslation } from 'react-i18next'
 import MovieCard from '../movie-card/MovieCard';
 
 import Pagination from '@mui/material/Pagination';
@@ -8,6 +9,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import "./movie-grid.scss";
 
 function MovieGrid(props) {
+
+  const [t] = useTranslation("global");
 
   const [items, setItems] = useState([]);
   const [page, setPage] = useState(parseInt(1));
@@ -19,7 +22,8 @@ function MovieGrid(props) {
       let response = null;
       if (props.keyword === undefined) {
           const params = {
-            page: 1
+            page: 1,
+            language: `${t("lang.langAPI")}`,
           };
           // setChangePaginationPage(page);
           switch(props.category) {
@@ -52,13 +56,14 @@ function MovieGrid(props) {
     getList();
     window.scrollTo({top: 0, behavior: 'smooth',});
 
-  }, [props.category, props.keyword, props.selectedGenres])
+  }, [props.category, props.keyword, props.selectedGenres, t])
 
   const loadMore = async () => {
     let response = null;
     if (props.keyword === undefined) {
       const params = {
-        page: page + 1
+        page: page + 1,
+        language: `${t("lang.langAPI")}`,
       };
       switch(props.category) {
         case "upcoming":
@@ -77,6 +82,7 @@ function MovieGrid(props) {
       }
     } else {
       const params = {
+        language: `${t("lang.langAPI")}`,
         page: page + 1,
         query: props.keyword
       }
@@ -113,6 +119,7 @@ function MovieGrid(props) {
     let response = null;
     if (props.keyword === undefined) {
       const params = {
+        language: `${t("lang.langAPI")}`,
         page: newPage
       };
       switch(props.category) {
@@ -133,6 +140,7 @@ function MovieGrid(props) {
       }
     } else {
       const params = {
+        language: `${t("lang.langAPI")}`,
         page: newPage,
         query: props.keyword
       }

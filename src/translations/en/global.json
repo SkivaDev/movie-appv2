@@ -1,0 +1,22 @@
+{
+  "lang":{
+    "langAPI": "en",
+    "home": "Home",
+    "trending": "Trending",
+    "categories": "Categories",
+    "popular": "Popular",
+    "upcoming": "Upcoming",
+    "playTrailer": "Play Trailer",
+    "details": "Details",
+    "movie": "Movie",
+    "search": "Search",
+    "goBack": "Go Back",
+    "trendingMovies": "Trending Movies",
+    "popularMovies": "Popular Movies",
+    "upcomingMovies": "Upcoming Movies",
+    "similarMovies": "Similar Movies",
+    "released": "Released",
+    "allRightsReserved": "All rights reserved",
+    "seeAll": "See All"
+  }
+}

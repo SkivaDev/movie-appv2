@@ -1,0 +1,22 @@
+{
+  "lang":{
+    "langAPI": "es",
+    "home": "Inicio",
+    "trending": "Tendencias",
+    "categories": "Categorías",
+    "popular": "Popular",
+    "upcoming": "Próximamente",
+    "playTrailer": "Ver trailer",
+    "details": "Detalles",
+    "movie": "Pelicula",
+    "search": "Búsqueda",
+    "goBack": "Volver",
+    "trendingMovies": "Películas en Tendencia",
+    "popularMovies": "Películas Populares",
+    "upcomingMovies": "Próximas películas",
+    "similarMovies": "Películas Similares",
+    "released": "Publicado en",
+    "allRightsReserved": "Todos los derechos reservados",
+    "seeAll": "Ver todas"
+  }
+}

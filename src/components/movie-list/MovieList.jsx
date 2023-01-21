@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next'
 
 import './movie-list.scss';
 
@@ -23,12 +24,13 @@ import MovieCard from '../movie-card/MovieCard';
 
 const MovieList = props => {
 
+    const [t] = useTranslation("global");
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const getList = async () => {
             let response = null;
-            const params = {};
+            const params = {language: `${t("lang.langAPI")}`};
 
             if (props.category !== 'similar') {
                 switch(props.category) {
@@ -48,7 +50,7 @@ const MovieList = props => {
             setItems(response.results);
         }
         getList();
-    }, []);
+    }, [t]);
 
     return (
         <div className="movie-list">

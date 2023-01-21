@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
@@ -15,6 +16,7 @@ import TrailerModal from '../trailer-modal/TrailerModal';
 function MovieDetail() {
 
   const { category, id } = useParams();
+  const [t] = useTranslation("global");
 
   const [movieItem, setMovieItem] = useState({});
   const [playTrailer, setPlayTrailer] = useState(false);
@@ -22,7 +24,7 @@ function MovieDetail() {
   console.log("IDDD", id);
   useEffect(() => {
     const getDetail = async () => {
-      const params = {}
+      const params = {language: `${t("lang.langAPI")}`}
 
       try {
 
@@ -37,7 +39,7 @@ function MovieDetail() {
     getDetail();
     window.scrollTo({top: 0, behavior: 'smooth',});
 
-  }, [category, id])
+  }, [category, id, t])
   
 
   return (
@@ -58,6 +60,8 @@ function MovieDetail() {
 }
 
 const MovieDetailItem = props => {
+
+  const [t] = useTranslation("global");
 
   const item = props.item;
 
@@ -125,10 +129,10 @@ const MovieDetailItem = props => {
             {item.title}
             </h2>
             <p className="data__overview">
-              {item.overview}
+              {item.overview ? item.overview : "There isn't an overview"}
             </p>
             <h5 className="data__released">
-              <mark>Released: </mark>{item.release_date}
+              <mark>{`${t("lang.released")}`}: </mark>{item.release_date}
             </h5>
           </div>
           <div className="movieDetail__item__buttons">
@@ -137,12 +141,12 @@ const MovieDetailItem = props => {
               <p className='playTrailer__button__text' 
                 onClick={()=> props.setPlayTrailer(true)}
               >
-                PLAY TRAILER
+                {`${t("lang.playTrailer")}`}
               </p>
             </button>
           </div>
           <div className="movieDetail__item__genres">
-            <h3 className='genre__text'>Categories</h3>        
+            <h3 className='genre__text'>{`${t("lang.categories")}`}</h3>        
             <div className='genre__box'>
               {Array.from(genresArray).map((gen, i) => 
                 <div className='genre__item' key={i}>
@@ -164,7 +168,7 @@ const MovieDetailItem = props => {
           <div className={`movieDetail__item__btn-back`}>
             <button className={`button`} onClick={returnBack}>
               <BiArrowBack className={`button-icon`} />
-              <p className={`button-text`}>GO BACK</p>
+              <p className={`button-text`}>{`${t("lang.goBack")}`}</p>
             </button>
           </div>
         </div>

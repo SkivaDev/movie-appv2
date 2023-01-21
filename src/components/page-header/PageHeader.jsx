@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
 import { BiArrowBack } from "react-icons/bi"
 import './page-header.scss'
 
 function PageHeader(props) {
 
+  const [t] = useTranslation("global");
   const [titlePage, setTitlePage] = useState("");
 
   const navigate = useNavigate();
@@ -17,16 +19,16 @@ function PageHeader(props) {
     const confTitlePage = () => {
       switch (props.category) {
         case "trending":
-          setTitlePage("Trending Movies");
+          setTitlePage(`${t("lang.trendingMovies")}`);
           break;
         case "upcoming":
-          setTitlePage("Upcoming Movies");
+          setTitlePage(`${t("lang.upcomingMovies")}`);
           break;
         case "popular":
-          setTitlePage("Popular Movies");
+          setTitlePage(`${t("lang.popularMovies")}`);
           break;
         case "categories":
-          setTitlePage("Categories");
+          setTitlePage(`${t("lang.categories")}`);
           break;
         default:
           setTitlePage(props.keyword);
@@ -46,7 +48,7 @@ function PageHeader(props) {
       <div className={`pageHeader__btn`}>
         <button className={`button`} onClick={returnBack}>
           <BiArrowBack className={`button-icon`} />
-          <p className={`button-text`}>GO BACK</p>
+          <p className={`button-text`}>{`${t("lang.goBack")}`}</p>
         </button>
       </div>
     </div>
