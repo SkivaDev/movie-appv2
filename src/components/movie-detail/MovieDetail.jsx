@@ -10,12 +10,14 @@ import { AiFillInfoCircle } from 'react-icons/ai'
 import './movie-detail.scss'
 
 import { formatRunTime, formatVoteAverage } from '../../utils/utils'
+import TrailerModal from '../trailer-modal/TrailerModal';
 
 function MovieDetail() {
 
   const { category, id } = useParams();
 
   const [movieItem, setMovieItem] = useState({});
+  const [playTrailer, setPlayTrailer] = useState(false);
 
   console.log("IDDD", id);
   useEffect(() => {
@@ -40,7 +42,17 @@ function MovieDetail() {
 
   return (
     <div className='movieDetail'>
-      <MovieDetailItem key={0} item={movieItem} category={category}/>
+      <MovieDetailItem 
+        key={0} 
+        item={movieItem} 
+        category={category}
+        setPlayTrailer={setPlayTrailer}
+        />
+      {
+        playTrailer 
+        ? <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer} playTrailer={playTrailer}/> 
+        : null
+      }
     </div>
   )
 }
@@ -122,7 +134,11 @@ const MovieDetailItem = props => {
           <div className="movieDetail__item__buttons">
             <button className="playTrailer__button">
               <BsFillPlayFill className='playTrailer__button__icon'/>
-              <p className='playTrailer__button__text'>PLAY TRAILER</p>
+              <p className='playTrailer__button__text' 
+                onClick={()=> props.setPlayTrailer(true)}
+              >
+                PLAY TRAILER
+              </p>
             </button>
           </div>
           <div className="movieDetail__item__genres">

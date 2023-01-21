@@ -1,0 +1,87 @@
+@use "../../scss/" as *;
+
+.trailerModal {
+  @include flex(center, center);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background-color: rgba($color: $black, $alpha: 0.8);
+  opacity: 0;
+  visibility: hidden;
+  // display: none;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    // display: flex;
+  }
+
+  &__content {
+    padding: 2rem;
+    background-color: black;
+    width: 80%;
+    height: 80%;
+    opacity: 0;
+    transform: translateY(-250px);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    border-radius: 10px;
+    position: relative;
+    
+    @include tablet {
+        width: 80%;
+    }
+  
+    &_close{
+      position: absolute;
+      // right: 3%;
+      // bottom: 4%;
+      right: -25px;
+      bottom: -25px;
+      // padding: 15rem;
+      width: 50px;
+      height: 50px;
+      background-color: $main-color;
+      background-color: transparent;
+      box-shadow: 0 0 10px 0 $main-color inset, 0 0 10px 4px $main-color;
+      box-shadow: 0 0 10px 0 $white inset, 0 0 10px 4px $white;
+      border: none;
+      border-radius: 50%;
+      font-size: 10rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+
+
+      &.active {
+        opacity: 1;
+      }
+
+      .icon {
+        color: $white;
+        font-size: 20rem;
+      }
+
+      &:hover {
+        background-color: $btn-oppacity;
+        background-color: $white;
+        box-shadow: 0 0 10px 0 $main-color inset, 0 0 10px 4px $main-color;
+        color: $main-color;
+      }
+
+    }
+  }
+
+  &.active &__content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.youtube-container {
+  height: 100%;
+  width: 100%;
+}

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
+import TrailerModal from '../trailer-modal/TrailerModal';
+
 import Modal, { ModalContent } from '../modal/Modal';
 import YouTube from "react-youtube";
 
@@ -17,6 +19,8 @@ function HomeHero() {
 
   const [movieItems, setMovieItems] = useState([]);
   const [movieItem, setMovieItem] = useState({});
+  const [playTrailer, setPlayTrailer] = useState(false);
+
 
   useEffect(() => {
     const getMovies = async () => {
@@ -45,17 +49,24 @@ function HomeHero() {
 
   return (
     <div className='homeHero'>
+      <HomeHeroItem 
+      key={0} 
+      item={movieItem} 
+      setPlayTrailer={setPlayTrailer}
+      />
       {/* {
-        movieItems.map((item, i) => (
-          <HomeHeroItem key={i} item={item}/>
-        ))
+        playTrailer 
+        ? <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer}/> 
+        : null
       } */}
+      {
+        playTrailer 
+        ? <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer} playTrailer={playTrailer}/> 
+        : null
+      }
 
-      <HomeHeroItem key={0} item={movieItem}/>
-  
-      {/* {
-        movieItems.map((item, i) => <TrailerModal key={i} item={item}/>)
-      } */}
+      {/* <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer} playTrailer={playTrailer}/>  */}
+
     </div>
   )
 }
@@ -106,7 +117,11 @@ const HomeHeroItem = props => {
           <div className="homeHero__item__buttons">
             <button className="playTrailer__button">
               <BsFillPlayFill className='playTrailer__button__icon'/>
-              <p className='playTrailer__button__text'>PLAY TRAILER</p>
+              <p className='playTrailer__button__text' 
+                onClick={()=> props.setPlayTrailer(true)}
+              >
+                PLAY TRAILER
+              </p>
             </button>
             <Link className="goDetails__button" to={link}>
               <AiFillInfoCircle className='goDetails__button__icon'/>

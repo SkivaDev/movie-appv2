@@ -195,6 +195,8 @@
     &__genres {
       margin-top: 20px;
       align-self: start;
+      // overflow-x: auto;
+      // width: 300px;
       & .genre__text {
         font-size: 25rem;
         margin-bottom: 10px;
