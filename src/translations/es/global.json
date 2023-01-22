@@ -1,6 +1,6 @@
 {
   "lang":{
-    "langAPI": "es",
+    "langAPI": "es-MX",
     "home": "Inicio",
     "trending": "Tendencias",
     "categories": "Categorías",
@@ -17,6 +17,8 @@
     "similarMovies": "Películas Similares",
     "released": "Publicado en",
     "allRightsReserved": "Todos los derechos reservados",
-    "seeAll": "Ver todas"
+    "seeAll": "Ver todas",
+    "noResult": "No hay resultados",
+    "noTrailer": "No se encontraron trailers"
   }
 }

@@ -17,6 +17,8 @@
     "similarMovies": "Similar Movies",
     "released": "Released",
     "allRightsReserved": "All rights reserved",
-    "seeAll": "See All"
+    "seeAll": "See All",
+    "noResult": "There aren't results",
+    "noTrailer": "There aren't trailers"
   }
 }
