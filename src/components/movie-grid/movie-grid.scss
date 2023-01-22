@@ -42,9 +42,11 @@
             border: 1px solid rgba(225, 60, 47, 0.5);
             background-color: rgba(225, 60, 47, 0.12);
         }
-
-        @include tablet {
-            display: none;
-        }
     }
+}
+
+.MuiCircularProgress-root.css-189ykzf-MuiCircularProgress-root {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
 }

@@ -19,6 +19,7 @@ function PageHeader(props) {
     const confTitlePage = () => {
       switch (props.category) {
         case "trending":
+          // setTitlePage(`${t("lang.trendingMovies")}`);
           setTitlePage(`${t("lang.trendingMovies")}`);
           break;
         case "upcoming":
@@ -36,7 +37,7 @@ function PageHeader(props) {
       }
     }
     confTitlePage();
-  }, [props.category])
+  }, [props.category, t])
 
   return (
     <div className={`pageHeader`}>
