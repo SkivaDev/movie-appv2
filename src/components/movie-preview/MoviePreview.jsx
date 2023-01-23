@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { OutlineButton } from '../button/Button';
 import MovieList from '../movie-list/MovieList'
+
 import "./movie-preview.scss"
 
 function MoviePreview(props) {

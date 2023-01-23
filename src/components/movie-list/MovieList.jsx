@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useTranslation } from 'react-i18next'
-
-import './movie-list.scss';
-
-import { SwiperSlide, Swiper } from 'swiper/react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
+import { SwiperSlide, Swiper } from 'swiper/react';
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,14 +10,13 @@ import "swiper/css/scrollbar";
 // import required modules
 import { Scrollbar } from "swiper";
 
-
-
-import Button from '../button/Button';
-
 import tmdbApi, { category } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
+import Button from '../button/Button';
 import MovieCard from '../movie-card/MovieCard';
+
+import './movie-list.scss';
 
 const MovieList = props => {
 

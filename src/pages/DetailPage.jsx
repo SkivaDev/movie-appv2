@@ -1,8 +1,9 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next'
+
 import MovieDetail from '../components/movie-detail/MovieDetail'
 import MoviePreview from '../components/movie-preview/MoviePreview'
-import { useTranslation } from 'react-i18next'
 
 function DetailPage() {
 

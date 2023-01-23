@@ -1,15 +1,13 @@
 import React from 'react';
-
-import { BsFillCollectionPlayFill } from "react-icons/bs"
-
-import './movie-card.scss';
-
 import { Link } from 'react-router-dom';
+
+import apiConfig from '../../api/apiConfig';
+import { movieType } from '../../api/tmdbApi';
 
 import Button from '../button/Button';
 
-import { movieType } from '../../api/tmdbApi';
-import apiConfig from '../../api/apiConfig';
+import { BsFillCollectionPlayFill } from "react-icons/bs"
+import './movie-card.scss';
 
 const MovieCard = props => {
 

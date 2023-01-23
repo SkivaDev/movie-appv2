@@ -1,6 +1,8 @@
 import React , {useState} from 'react'
+
 import useLocalStorage from '../../hooks/useLocalStorage'
 import { useTranslation } from 'react-i18next'
+
 import './language-toggle.scss'
 
 function LanguageToggle(props) {

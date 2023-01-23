@@ -5,13 +5,13 @@ import { useTranslation } from 'react-i18next'
 import tmdbApi from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 
+import { formatRunTime, formatVoteAverage } from '../../utils/utils'
+import TrailerModal from '../trailer-modal/TrailerModal';
+
 import { BiArrowBack } from "react-icons/bi"
 import { BsFillPlayFill } from 'react-icons/bs'
 import { AiFillInfoCircle } from 'react-icons/ai'
 import './movie-detail.scss'
-
-import { formatRunTime, formatVoteAverage } from '../../utils/utils'
-import TrailerModal from '../trailer-modal/TrailerModal';
 
 function MovieDetail() {
 

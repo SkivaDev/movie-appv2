@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+
 import HomeHero from '../components/home-hero/HomeHero'
 import MoviePreview from '../components/movie-preview/MoviePreview' 
 

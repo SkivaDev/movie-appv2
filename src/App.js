@@ -1,5 +1,6 @@
 import './App.scss';
 import { HashRouter, Route, Routes } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
 import DetailPage from './pages/DetailPage';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
+
 import PageHeader from '../components/page-header/PageHeader';
 import MovieGrid from '../components/movie-grid/MovieGrid';
 import GenreFilter from '../components/genre-filter/GenreFilter';

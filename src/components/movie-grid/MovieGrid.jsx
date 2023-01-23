@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import tmdbApi, { category } from '../../api/tmdbApi';
 import { useTranslation } from 'react-i18next'
-import MovieCard from '../movie-card/MovieCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
+import MovieCard from '../movie-card/MovieCard';
 
 import Pagination from '@mui/material/Pagination';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-
 import "./movie-grid.scss";
+
 
 function MovieGrid(props) {
 

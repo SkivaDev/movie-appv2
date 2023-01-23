@@ -4,17 +4,16 @@ import { Link } from 'react-router-dom';
 import tmdbApi, { category, movieType } from '../../api/tmdbApi';
 import apiConfig from '../../api/apiConfig';
 import { useTranslation } from 'react-i18next'
+import { formatRunTime, formatVoteAverage } from '../../utils/utils'
 
 import TrailerModal from '../trailer-modal/TrailerModal';
 
-import Modal, { ModalContent } from '../modal/Modal';
 import YouTube from "react-youtube";
 
 import { BsFillPlayFill } from 'react-icons/bs'
 import { AiFillInfoCircle } from 'react-icons/ai'
 import "./home-hero.scss";
 
-import { formatRunTime, formatVoteAverage } from '../../utils/utils'
 
 function HomeHero() {
 
@@ -73,12 +72,6 @@ const HomeHeroItem = props => {
   const item = props.item;
 
   const background = apiConfig.originalImage(item.backdrop_path ? item.backdrop_path : item.poster_path);
-
-  const setModalActive = async () => {
-    const modal = document.querySelector(`#modal_${item.id}`)
-
-    const videos = await tmdbApi.getVideos(item.id, {});
-  }
 
   const link = '/popular/' + item.id;
 
