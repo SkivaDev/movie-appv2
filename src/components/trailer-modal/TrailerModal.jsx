@@ -14,13 +14,11 @@ function TrailerModal(props) {
   const [trailerKey, setTrailerKey] = useState(null);
 
   useEffect(() => {
-    console.log("ahora el key es 1", trailerKey)
     const getVideo = async () => {
       const params = {
         language: `${t("lang.langAPITrailer")}`
       }
       const res = await tmdbApi.getVideos(item.id, {params});
-      console.log("VIDEO3", res)
       const trailer = res.results.find(vid => 
         vid.name.toLowerCase().includes("official trailer") 
         || vid.name.toLowerCase().includes("tráiler oficial") 
@@ -29,7 +27,6 @@ function TrailerModal(props) {
       setTrailerKey(key);
     }
     getVideo();
-    console.log("ahora el key es 2", trailerKey)
   }, [item, t]);
 
   return (

@@ -76,11 +76,8 @@ const MovieDetailItem = props => {
     const videos = await tmdbApi.getVideos(item.id, {});
   }
 
-  console.log("daw?", item.genres);
-
   ///
   const genresArray = new Set(item.genres);
-
   ///
   const renderGenres = () => (
     item.genres.map((gen, i) => 

@@ -17,7 +17,6 @@ function SearchButton(props) {
       inputRef.current.focus();
       setText(value);
       setError(true);
-      console.log("El error es verdadero");
       return false;
     }
     setError(false);
@@ -35,7 +34,6 @@ function SearchButton(props) {
       navigate(`/search/name=${text}`)
     }
     setText("");
-    console.log("errosIs", error);
   }
 
   return (

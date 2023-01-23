@@ -20,7 +20,6 @@ function SearchInput() {
       inputRef.current.focus();
       setText(value);
       setError(true);
-      console.log("El error es verdadero");
       return false;
     }
     setError(false);
@@ -38,7 +37,6 @@ function SearchInput() {
       navigate(`/search/name=${text}`)
     }
     setText("");
-    console.log("errosIs", error);
   }
 
 

@@ -47,10 +47,8 @@ function MovieGrid(props) {
               response = await tmdbApi.getTrendingMovieList({params});
               break;
             case "categories":
-              console.log("HOla?")
               const stringGenres = props.selectedGenres.join(",");
               response = await tmdbApi.getMoviesByCategory(stringGenres, {params});
-              console.log(response)
               break;
           }
       } else {
@@ -61,7 +59,6 @@ function MovieGrid(props) {
           }
           response = await tmdbApi.search({params});
       }
-      console.log("que pasa", response)
       if ( paginationMode === "infinite scroll") {
         setItems(prevItems => {
           return [...new Set([...prevItems, ...response.results])]
@@ -147,7 +144,6 @@ function MovieGrid(props) {
         case "categories":
           const stringGenres = props.selectedGenres.join(",");
           response = await tmdbApi.getMoviesByCategory(stringGenres, {params});
-          console.log("New list page cat", response);
           break;
       }
     } else {
@@ -158,8 +154,6 @@ function MovieGrid(props) {
       }
       response = await tmdbApi.search({params});
     }
-    console.log("wasss")
-    console.log("response", response)
     setPage(parseInt(newPage));
     setItems(response.results);
   }

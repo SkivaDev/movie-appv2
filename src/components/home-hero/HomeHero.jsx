@@ -37,8 +37,6 @@ function HomeHero() {
           }
           const randomMovie = await tmdbApi.detail(response.results[getIndexRandom(0,9)]["id"], {params});
           setMovieItem(randomMovie);
-          console.log(response);
-          console.log(randomMovie);
       } catch {
         console.log("ERROR")
       }

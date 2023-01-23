@@ -26,7 +26,7 @@ function GenreFilter(props) {
   const filterGenre = (e) => {
     const newGenreId = e.target.id;
     const selectedGenresX = [...props.selectedGenres];
-    console.log("LISTAAA", selectedGenresX);
+
     if(selectedGenresX.length === 0) {
       selectedGenresX.push(newGenreId);
     } else {
@@ -34,7 +34,6 @@ function GenreFilter(props) {
         selectedGenresX.forEach((id, idx) => {
            if(id === newGenreId) {
             selectedGenresX.splice(idx, 1);
-            console.log( "xas" , selectedGenresX)
          }
          })
       } 
@@ -43,7 +42,6 @@ function GenreFilter(props) {
       }
     }
     props.setSelectedGenres(selectedGenresX);
-    console.log(props.selectedGenres)
     highlightSelection(selectedGenresX);
   }
 

@@ -9,7 +9,6 @@ import global_es from "./translations/es/global.json";
 import App from './App';
 
 const languageConfig = JSON.parse(localStorage.getItem("language_config"));
-console.log("myItemLocal", typeof(languageConfig))
 
 i18next.init({
   interpolation: { escapeValue: false},
