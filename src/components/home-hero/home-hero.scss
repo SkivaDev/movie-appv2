@@ -35,24 +35,18 @@
         right: 0;
         background-size: cover;
         background-position: center;
-        box-shadow: 200px -200px 400px -21px rgb(0, 0, 0) inset;
+        box-shadow: $box-shadow-container;
         z-index: -1;
         @include tablet {
-          position: absolute;
-          display: flex;
           width: 100%;
           height: 70vh;
           top: 0;
           right: 0;
-          background-size: cover;
-          background-position: center;
-          // box-shadow: inset 0 0 85px 65px black;
-          box-shadow: 1px -91px 41px -19px rgba(0,0,0,0.85) inset;
+          box-shadow: $box-shadow-containerV2;
           opacity: 0.8;
-          z-index: -1;
         }
         @include mobile {
-          box-shadow: 1px -62px 33px -19px rgba(0,0,0,0.8) inset;
+          box-shadow: $box-shadow-containerV3;
           border-radius: 11%;
         }
       }
@@ -75,7 +69,7 @@
           @include flex(center, end);
           padding-bottom: 90px;
           height: 100vh;
-
+          // width: 100%;
           // min-width: 258px;
         }
 

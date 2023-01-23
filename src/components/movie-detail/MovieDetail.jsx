@@ -122,7 +122,9 @@ const MovieDetailItem = props => {
             •
             <p className="data__num">{formatRunTime(item.runtime)}</p>
             •
-            <div className="data__category">{props.category}</div>
+            <div className="data__category">
+              {(props.category !== undefined) ? props.category : "search"}
+            </div>
           </div>
           <div className='movieDetail__item__texts'>
             <h2 className="data__title">

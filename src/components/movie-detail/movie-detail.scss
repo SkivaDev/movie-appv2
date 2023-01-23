@@ -5,9 +5,11 @@
   &__item {
     max-width: 960px;
     height: 100vh;
-
+    @include tablet {
+      height: 80vh;
+    }
     @include mobile {
-     height: 135vh;
+     height: 130vh;
     }
 
     &__content{
@@ -38,7 +40,9 @@
         border-radius: 11%;
         opacity: 0.2;
         z-index: -1;
-
+        @include tablet {
+          height: 70vh;
+        }
         @include mobile {
          opacity: 0.9;
         }
@@ -51,7 +55,9 @@
         border-radius: 10px;
 
         @include tablet {
-          width: 280px;
+          width: 33.3%;
+          height: 40%;
+          margin-bottom: 20%;
         }
         @include mobile {
           display: none;
@@ -65,11 +71,17 @@
         height: 610px;
 
         @include tablet {
-          max-width: 370px;
+          // max-width: 370px;
+          height: auto;
+          margin-bottom: 5%;
+          width: 60%;
         }
         @include mobile {
           @include flex(center, end);
-          // min-width: 258px;
+          height: 610px;
+          margin-bottom: 0;
+          width: 100%;
+          max-width: 512px;
         }
 
       }
@@ -83,8 +95,11 @@
       font-size: 20rem;
       margin-bottom: 15px;
 
+      @include tablet {
+        font-size: 30rem;
+      }
       @include mobile {
-        font-size: 40rem;
+        font-size: 28rem;
       }
 
       & .data__star {
@@ -103,10 +118,12 @@
         font-size: 15rem;
         border-radius: 7px;
         text-transform: uppercase;
-
+        @include tablet {
+          font-size: 20rem;
+        }
         @include mobile {
           padding: 5px 10px;
-          font-size: 28rem;
+          font-size: 26rem;
         }
       }
     }
@@ -117,7 +134,9 @@
         font-size: 32rem;
         font-weight: 600;
         margin-bottom: 15px;
-
+        @include tablet {
+          font-size: 40rem;
+        }
         @include mobile {
           font-size: 50rem;
           text-align: center;
@@ -128,7 +147,9 @@
         font-weight: 400;
         line-height: 26px;
         margin-bottom: 17px;
-
+        @include tablet {
+          font-size: 20rem;
+        }
         @include mobile {
           font-size: 27rem;
           line-height: 23px;
@@ -146,6 +167,9 @@
         font-size: 15rem;
         margin-bottom: 17px;
         font-weight: 400;
+        @include tablet {
+          font-size: 18rem;
+        }
         @include mobile {
           display: none;
         }
@@ -173,17 +197,22 @@
         color: $white;
         font-size: 14rem;
         cursor: pointer;
-
+        text-transform: uppercase;
         &:hover {
           background-color: $btn-oppacity;
         }
-
+        @include tablet {
+          font-size: 20rem;
+        }
         @include mobile {
           font-size: 30rem;
           padding: 15px 12px;
         }
         &__icon {
           font-size: 15rem;
+          @include tablet {
+            font-size: 24rem;
+          }
           @include mobile {
             font-size: 35rem;
           }
@@ -201,6 +230,9 @@
       & .genre__text {
         font-size: 25rem;
         margin-bottom: 10px;
+        @include tablet {
+          font-size: 30rem;
+        }
         @include mobile {
           font-size: 40rem;
         }
@@ -208,15 +240,33 @@
       & .genre__box {
         display: flex;
         gap: 15px;
+        width: 100%;
         overflow-x: auto;
+        white-space: nowrap;
+        padding-bottom: 15px;
+        &::-webkit-scrollbar {
+          height: 6px;
+        }
+        &::-webkit-scrollbar-track {
+          background: #262626;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: $main-color;
+          border-radius: 3px;
+          border: 20px solid #ff0000;
+        }
       }
       & .genre__item {
         font-size: 15rem;
         font-weight: 400;
         background-color: $btn-gray;
         padding: 8px 16px;
+        border: none;
         border-radius: 7px;
         transition: color 0.3s ease, background-color 0.3s ease;
+        @include tablet {
+          font-size: 18rem;
+        }
         @include mobile {
           font-size: 24rem;
         }
@@ -228,7 +278,10 @@
       top: 0;
       right: 0;
 
-
+      @include tablet {
+        top: -15%;
+        right: 0;
+      }
       @include mobile {
         display: none;
       }
@@ -236,22 +289,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 3px;
         padding: 8px 10px;
-        width: 113px;
         background-color: $main-color;
         border: none;
         border-radius: 11px;
         color: $white;
+        white-space: nowrap;
         cursor: pointer;
-        font-family: Arial, Helvetica, sans-serif;
         transition: color 0.3s ease, background-color 0.3s ease;
 
         @include tablet {
-          width: 105px;
+          // width: 105px;
         }
         @include mobile {
           justify-content: center;
-          width: 45px;
+          // width: 45px;
         }
       }
       .button:hover {
@@ -262,16 +315,17 @@
       .button-icon{
         font-size: 20rem;
         @include tablet {
-          font-size: 24rem;
+          font-size: 28rem;
         }
         @include mobile {
-          font-size: 35rem;
+          font-size: 50rem;
         }
       }
       .button-text {
-        font-size: 14rem;
+        font-size: 16rem;
+        text-transform: uppercase;
         @include tablet {
-          font-size: 15rem;
+          font-size: 20rem;
         }
         @include mobile {
           display: none;

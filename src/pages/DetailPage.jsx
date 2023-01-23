@@ -13,7 +13,7 @@ function DetailPage() {
     <div className="detailPage">
       <MovieDetail/>
       <div className='max-center mt-30'>
-        <MoviePreview title={`${t("lang.similarMovies")}`} redirect={"/trending"} 
+        <MoviePreview title={`${t("lang.similarMovies")}`} 
         category={"similar"} id={id}/>
       </div>
     </div>

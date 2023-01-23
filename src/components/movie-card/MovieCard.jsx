@@ -15,7 +15,9 @@ const MovieCard = props => {
 
     const item  = props.item;
 
-    const link = '/' + props.category + '/' + item.id;
+    // const link = '/' + props.category + '/' + item.id;
+    // const link = `/${props.category ? props.category : "movie"}/${item.id}`;
+    const link = `/movie/${item.id}`;
 
     const bg = apiConfig.w500Image(item.poster_path || item.backdrop_path);
 

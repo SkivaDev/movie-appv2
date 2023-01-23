@@ -24,7 +24,7 @@ function MovieGrid(props) {
   useEffect(() => {
    setPage(parseInt(1))
    setItems([])
-  }, [props.category, props.selectedGenres, props.keyword])
+  }, [props.category, props.selectedGenres, props.keyword, t])
   
 
   useEffect(() => {
