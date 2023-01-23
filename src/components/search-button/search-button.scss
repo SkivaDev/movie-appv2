@@ -2,7 +2,7 @@
 
 .searchButton {
 
-  transition: all 2s ;
+  transition: all 10s ;
 
   & .input-error {
     border-color: $second-color;
@@ -24,18 +24,22 @@
     }
   }
   &__input {
-    display: none;
-    transition: all 6s ;
+    display: block;
+    width: 0;
+    height: 0;
+    color: $white;
+    border: 0;
+    background-color: transparent;
+    margin-left: 15px;
+    font-size: 25rem;
+    visibility: hidden;
+    transition: visibility 3s;
 
     &.open {
       display: block;
+      visibility: visible;
       width: 100%;
       height: 30px;
-      color: $white;
-      border: 0;
-      background-color: transparent;
-      margin-left: 15px;
-      font-size: 25rem;
     }
   }
   &__btn {
