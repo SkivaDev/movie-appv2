@@ -12,12 +12,10 @@
   background-color: rgba($color: $black, $alpha: 0.8);
   opacity: 0;
   visibility: hidden;
-  // display: none;
 
   &.active {
     opacity: 1;
     visibility: visible;
-    // display: flex;
   }
 
   &__content {
@@ -42,23 +40,14 @@
       justify-content: center;
       align-items: center;
       padding: 13px;
-      // right: 3%;
-      // bottom: 4%;
       right: -25px;
       bottom: -25px;
-      // padding: 15rem;
-      // width: 50px;
-      // height: 50px;
       background-color: transparent;
-      // box-shadow: 0 0 10px 0 $main-color inset, 0 0 10px 4px $main-color;
-      // box-shadow: 0 0 10px 0 $white inset, 0 0 10px 4px $white;
-      // border: none;
       border: 3px solid $white;
       border-radius: 50%;
       font-size: 10rem;
       cursor: pointer;
       opacity: 0;
-      // transition: transform 0.6s ease, opacity 0.6s ease;
       transition: all 0.3s ease;
       color: $white;
       font-size: 20rem;
@@ -66,11 +55,6 @@
       &.active {
         opacity: 1;
       }
-
-      // .icon {
-      //   color: $white;
-      //   font-size: 20rem;
-      // }
 
       &:hover {
         // background-color: $btn-oppacity;

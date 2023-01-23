@@ -21,16 +21,12 @@ function MovieDetail() {
   const [movieItem, setMovieItem] = useState({});
   const [playTrailer, setPlayTrailer] = useState(false);
 
-  console.log("IDDD", id);
   useEffect(() => {
     const getDetail = async () => {
       const params = {language: `${t("lang.langAPI")}`}
-
       try {
-
         const response = await tmdbApi.detail( id, {params});
         setMovieItem(response);
-        console.log("DETAIL MOVIE", response);
      } catch {
        console.log("ERROR MOVIEDETAIL")
      }
@@ -155,16 +151,6 @@ const MovieDetailItem = props => {
                   {gen.name}
                 </div>
               )}
-                {/* {renderGenres()} */}
-                {/* <div className='genre__item'>
-                  Drama
-                </div>
-                <div className='genre__item'>
-                  Animation
-                </div>
-                <div className='genre__item'>
-                  Terror
-                </div> */}
             </div>
           </div>
           <div className={`movieDetail__item__btn-back`}>

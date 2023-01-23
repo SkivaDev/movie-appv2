@@ -17,7 +17,6 @@
     .text {
       font-size: 30rem;
       letter-spacing: 1rem;
-      // text-transform: capitalize;
 
       @include tablet {
         font-size: 40rem;
@@ -32,10 +31,8 @@
     .button {
       display: flex;
       align-items: center;
-      // justify-content: center;
       gap: 3px;
       padding: 8px 10px;
-      // width: 113px;
       background-color: $main-color;
       border: none;
       border-radius: 11px;
@@ -45,11 +42,9 @@
       transition: color 0.3s ease, background-color 0.3s ease;
 
       @include tablet {
-        // width: 130px;
       }
       @include mobile {
         justify-content: center;
-        // width: 45px;
       }
     }
     .button:hover {

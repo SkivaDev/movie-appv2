@@ -8,15 +8,10 @@ import SearchButton from '../search-button/SearchButton'
 import SearchInput from '../search-input/SearchInput'
 
 import './header.scss'
-/*
-import { useTranslation } from 'react-i18next'
-const [t] = useTranslation("global");
-`${t("lang.home")}`
-*/
+
 function Header() {
 
   const { pathname } = useLocation();
-  const headerRef = useRef(null);
   const [t] = useTranslation("global");
 
   const headerNav = [
@@ -44,21 +39,6 @@ function Header() {
 
   const active = headerNav.findIndex(e => e.path === pathname);
 
-  // useEffect(() => {
-  //   const shrinkHeader = () => {
-  //     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-  //         headerRef.current.classList.add('shrink');
-  //     } else {
-  //         headerRef.current.classList.remove('shrink');
-  //     }
-  //   }
-  //   window.addEventListener('scroll', shrinkHeader);
-  //   return () => {
-  //       window.removeEventListener('scroll', shrinkHeader);
-  //   };
-  // }, [])
-  
-
 
   //click burger sidevar
   const [clickedBurger, setClickedBurger] = useState(false);
@@ -72,7 +52,7 @@ function Header() {
   }
 
   return (
-    <div ref={headerRef} className='header'>
+    <div className='header'>
       <div className='header--background'>
         <div className='header__wrap container'>
 

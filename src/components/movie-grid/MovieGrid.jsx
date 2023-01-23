@@ -74,7 +74,6 @@ function MovieGrid(props) {
     }
     getList();
     changeScreenMode();
-    // window.scrollTo({top: 0, behavior: 'smooth',});
 
   }, [props.category, props.keyword, props.selectedGenres, t, page])
 
@@ -126,37 +125,6 @@ function MovieGrid(props) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
   const [hasMore, setHasMore] = useState(false)
-
-
-    
-
-  
-  //
-
-
-  // const infiniteScroll = () => {
-  //   // const {
-  //   //   scrollTop,
-  //   //   scrollHeight,
-  //   //   clientHeight,
-  //   //   clientWidth
-  //   // } = document.documentElement;
-
-  //   // const scrollIsBottom = (scrollTop + clientHeight) >= (scrollHeight - 100);
-  //   const scrollIsBottom = window.innerHeight + window.pageYOffset >= (document.body.offsetHeight - window.innerHeight);
-  //   const pageIsNotMax = page < totalPage;
-  //   const isTablet = clientWidth <= 1024;
-
-  //   if (scrollIsBottom && pageIsNotMax  && isTablet) {
-  //     console.log("scroll se activo");
-  //     // setTimeout(() => {
-  //     //   loadMore();
-  //     // }, 2000);
-  //     loadMore();
-  //   }
-  // }
-  // window.addEventListener('scroll', infiniteScroll)
-
 
 
     const getPaginatedMovies = async (newPage) => {
@@ -304,29 +272,7 @@ function MovieGrid(props) {
             </ThemeProvider>
           : null
         }
-        {/* <ThemeProvider theme={theme}>
-          <Pagination 
-            count={totalPage} 
-            variant="outlined" 
-            shape="rounded" 
-            color="primary"
-            size='large'
-            siblingCount={4}
-            page={page}
-            onChange={
-              (event) => {
-                const newPage = event.target.innerText;
-                handlePagination(newPage);
-                window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth',
-                      });
-              }
-            }
-          />
-        </ThemeProvider> */}
       </div>
-      
     </>
   )
 }

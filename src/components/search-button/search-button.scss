@@ -2,7 +2,6 @@
 
 .searchButton {
 
-  // transition: all .5s ease;
   transition: all 2s ;
 
   & .input-error {
@@ -57,7 +56,4 @@
   &__logo:hover {
     color: $main-color;
   }
-  // &.active {
-  //   width: 100%;
-  // }
 }

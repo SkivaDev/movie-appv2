@@ -57,26 +57,17 @@ function HomeHero() {
       item={movieItem} 
       setPlayTrailer={setPlayTrailer}
       />
-      {/* {
-        playTrailer 
-        ? <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer}/> 
-        : null
-      } */}
       {
         playTrailer 
         ? <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer} playTrailer={playTrailer}/> 
         : null
       }
-
-      {/* <TrailerModal item={movieItem} setPlayTrailer={setPlayTrailer} playTrailer={playTrailer}/>  */}
-
     </div>
   )
 }
 
 const HomeHeroItem = props => {
 
-  // let hisrory = useHis();
   const [t] = useTranslation("global");
 
   const item = props.item;
@@ -142,42 +133,4 @@ const HomeHeroItem = props => {
     </div>
   )
 }
-/*
-const TrailerModal = props => {
-
-  const item = props.item;
-
-  // const onClose = () => 
-
-  const renderTrailer = () => {
-    const trailer = selectedMovie.videos.results.find(vid => vid.name === "Official Trailer")
-    const key = trailer ? trailer.key : selectedMovie.videos.results[0].key
-
-    return (
-      <YouTube 
-        videoId={key}
-        className={"youtube-container"}
-        containerClassName={"youtube-container"}
-        opts={{
-          width: "100%",
-          height: "100%",
-          playerVars: {
-            autoplay: 1,
-            controls: 0
-          },
-        }}
-      />
-    )
-  }
-  
-
-  return (
-    <Modal id={`modal_${item.id}`}>
-      <ModalContent>
-        {renderTrailer()}
-      </ModalContent>
-    </Modal>
-  )
-}
-*/
 export default HomeHero

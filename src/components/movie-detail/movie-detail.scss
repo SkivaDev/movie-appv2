@@ -225,8 +225,6 @@
       margin-top: 20px;
       align-self: start;
       width: 100%;
-      // overflow-x: auto;
-      // width: 300px;
       & .genre__text {
         font-size: 25rem;
         margin-bottom: 10px;
@@ -300,11 +298,9 @@
         transition: color 0.3s ease, background-color 0.3s ease;
 
         @include tablet {
-          // width: 105px;
         }
         @include mobile {
           justify-content: center;
-          // width: 45px;
         }
       }
       .button:hover {

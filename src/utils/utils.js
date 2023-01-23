@@ -1,7 +1,3 @@
-export const myNewUtil = () => {
-  console.log("soy un util");
-}
-
 export const formatRunTime = (minutes) => {
   const mins = Number(minutes)
   var hour = Math.floor(mins / 60);
@@ -10,6 +6,7 @@ export const formatRunTime = (minutes) => {
   minute = (minute < 10)? '0' + minute : minute;
   return hour + 'h' +" " + minute + "m";
 }
+
 export const formatVoteAverage = (num) => {
   return Number(num).toFixed(1)
 }

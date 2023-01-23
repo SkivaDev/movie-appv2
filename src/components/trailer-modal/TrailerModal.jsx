@@ -16,11 +16,7 @@ function TrailerModal(props) {
   useEffect(() => {
     console.log("ahora el key es 1", trailerKey)
     const getVideo = async () => {
-      // const params = {language: "es-MX"}
-      // console.log("fallbackLng", fallbackLng)
       const params = {
-        // language: `${fallbackLng ? fallbackLng : t("lang.langAPI")}`
-        // language: `es-MX,es-ES`
         language: `${t("lang.langAPITrailer")}`
       }
       const res = await tmdbApi.getVideos(item.id, {params});
@@ -34,9 +30,6 @@ function TrailerModal(props) {
     }
     getVideo();
     console.log("ahora el key es 2", trailerKey)
-    // if(!trailerKey) {
-    //   getVideo("en")
-    // }
   }, [item, t]);
 
   return (
