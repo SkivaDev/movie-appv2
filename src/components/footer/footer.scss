@@ -9,6 +9,7 @@
   }
   &__text {
     font-size: 14rem;
+    text-align: center;
     @include tablet {
       font-size: 20rem;
     }

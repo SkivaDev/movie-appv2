@@ -1,6 +1,7 @@
 {
   "lang":{
     "langAPI": "en",
+    "langAPITrailer": "en",
     "home": "Home",
     "trending": "Trending",
     "categories": "Categories",
@@ -19,6 +20,6 @@
     "allRightsReserved": "All rights reserved",
     "seeAll": "See All",
     "noResult": "There aren't results",
-    "noTrailer": "There aren't trailers"
+    "noTrailer": "There aren't trailers in this language"
   }
 }

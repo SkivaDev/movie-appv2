@@ -21,6 +21,7 @@
   }
 
   &__content {
+    @include flex(center, center);
     padding: 2rem;
     background-color: black;
     width: 80%;
@@ -82,13 +83,17 @@
     }
   }
 
+  .youtube-container {
+    height: 100%;
+    width: 100%;
+  }
+  .message-noTrailer {
+    font-size: 40rem;
+  }
+
   &.active &__content {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.youtube-container {
-  height: 100%;
-  width: 100%;
-}

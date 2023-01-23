@@ -14,27 +14,34 @@ function TrailerModal(props) {
   const [trailerKey, setTrailerKey] = useState(null);
 
   useEffect(() => {
+    console.log("ahora el key es 1", trailerKey)
     const getVideo = async () => {
       // const params = {language: "es-MX"}
-      const params = {language: `${t("lang.langAPI")}`}
+      // console.log("fallbackLng", fallbackLng)
+      const params = {
+        // language: `${fallbackLng ? fallbackLng : t("lang.langAPI")}`
+        // language: `es-MX,es-ES`
+        language: `${t("lang.langAPITrailer")}`
+      }
       const res = await tmdbApi.getVideos(item.id, {params});
       console.log("VIDEO3", res)
       const trailer = res.results.find(vid => 
         vid.name.toLowerCase().includes("official trailer") 
         || vid.name.toLowerCase().includes("tráiler oficial") 
         || vid.name.toLowerCase().includes("trailer oficial"));
-      // const trailer = res.results.find(vid => vid.name.toLowerCase().includes() === "Official Trailer" || "Tráiler Oficial");
       const key = trailer ? trailer.key : res.results[0].key;
       setTrailerKey(key);
     }
     getVideo();
+    console.log("ahora el key es 2", trailerKey)
+    // if(!trailerKey) {
+    //   getVideo("en")
+    // }
   }, [item, t]);
 
   return (
     <div className={`trailerModal ${props.playTrailer ? "active" : ""}`}>
       <div className='trailerModal__content'>
-        {/* <div className={"youtube-container"}>
-        </div> */}
         {
           trailerKey 
           ? <YouTube

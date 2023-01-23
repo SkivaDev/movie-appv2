@@ -1,6 +1,7 @@
 {
   "lang":{
-    "langAPI": "es-MX",
+    "langAPI": "es-ES",
+    "langAPITrailer": "es-ES",
     "home": "Inicio",
     "trending": "Tendencias",
     "categories": "Categorías",
@@ -19,6 +20,6 @@
     "allRightsReserved": "Todos los derechos reservados",
     "seeAll": "Ver todas",
     "noResult": "No hay resultados",
-    "noTrailer": "No se encontraron trailers"
+    "noTrailer": "No se encontraron trailers en este idioma"
   }
 }
