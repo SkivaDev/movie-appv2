@@ -195,6 +195,7 @@
     &__genres {
       margin-top: 20px;
       align-self: start;
+      width: 100%;
       // overflow-x: auto;
       // width: 300px;
       & .genre__text {
@@ -207,6 +208,7 @@
       & .genre__box {
         display: flex;
         gap: 15px;
+        overflow-x: auto;
       }
       & .genre__item {
         font-size: 15rem;

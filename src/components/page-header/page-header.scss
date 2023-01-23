@@ -32,22 +32,24 @@
     .button {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      // justify-content: center;
+      gap: 3px;
       padding: 8px 10px;
-      width: 113px;
+      // width: 113px;
       background-color: $main-color;
+      border: none;
       border-radius: 11px;
       color: $white;
       cursor: pointer;
-      font-family: Arial, Helvetica, sans-serif;
+      white-space: nowrap;
       transition: color 0.3s ease, background-color 0.3s ease;
 
       @include tablet {
-        width: 130px;
+        // width: 130px;
       }
       @include mobile {
         justify-content: center;
-        width: 45px;
+        // width: 45px;
       }
     }
     .button:hover {
@@ -58,16 +60,18 @@
     .button-icon{
       font-size: 20rem;
       @include tablet {
-        font-size: 35rem;
+        font-size: 40rem;
       }
       @include mobile {
-        font-size: 35rem;
+        font-size: 50rem;
       }
     }
     .button-text {
-      font-size: 14rem;
+      font-size: 16rem;
+      text-transform: uppercase;
+      // word-wrap: ;
       @include tablet {
-        font-size: 20rem;
+        font-size: 28rem;
       }
       @include mobile {
         display: none;

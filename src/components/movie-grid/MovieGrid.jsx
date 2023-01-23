@@ -56,7 +56,8 @@ function MovieGrid(props) {
       } else {
           const params = {
               page: page,
-              query: props.keyword
+              query: props.keyword,
+              language: `${t("lang.langAPI")}`,
           }
           response = await tmdbApi.search({params});
       }

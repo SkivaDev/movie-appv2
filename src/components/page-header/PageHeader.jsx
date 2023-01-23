@@ -37,7 +37,7 @@ function PageHeader(props) {
       }
     }
     confTitlePage();
-  }, [props.category, t])
+  }, [props.category, props.keyword, t])
 
   return (
     <div className={`pageHeader`}>

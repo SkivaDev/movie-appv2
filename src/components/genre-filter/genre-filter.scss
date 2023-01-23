@@ -2,11 +2,15 @@
 
 .genreFilter {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
   position: relative;
   padding-bottom: 25px;
   margin-bottom: 30px;
+
+  @include tablet {
+    gap: 15px;
+  }
 
   &::-webkit-scrollbar {
     height: 10px;
@@ -25,12 +29,17 @@
     font-size: 14.5rem;
     font-weight: 400;
     background-color: $btn-gray;
-    padding: 2px 12px;
+    padding: 10px 15px;
+    border: none;
     border-radius: 7px;
     cursor: pointer;
-    // font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
     transition: color 0.3s ease, background-color 0.3s ease;
 
+    @include tablet {
+      padding: 15px 20px;
+      font-size: 25.5rem;
+    }
     @include mobile {
       font-size: 25.5rem;
     }
