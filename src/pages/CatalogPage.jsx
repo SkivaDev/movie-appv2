@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import PageHeader from '../components/page-header/PageHeader';
 import MovieGrid from '../components/movie-grid/MovieGrid';
 import GenreFilter from '../components/genre-filter/GenreFilter';
-
+import UpButton from '../components/up-button/UpButton'
 
 function CatalogPage() {
 
@@ -21,6 +21,8 @@ function CatalogPage() {
       : null}
 
       <MovieGrid category={category} keyword={keyword} selectedGenres={selectedGenres}/>
+
+      <UpButton/>
     </div>
   )
 }
